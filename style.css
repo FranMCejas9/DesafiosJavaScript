@@ -1,0 +1,26 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+h1{
+    width: 100vw;
+    height: 120px;
+    background-color: #eee;
+    color: 333;
+    font-size: clamp(1rem, 4rem, 5vw);
+    text-align: center;
+}
+
+h3{
+    width: 100vw;
+    height: 120px;
+    background-color: bisque;
+    color: #fff;
+    font-size: clamp(1rem, 3rem, 4vw);
+    text-align: center;
+}
+
+h3:first-child{
+    background-color: blueviolet;
+}
