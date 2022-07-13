@@ -96,19 +96,97 @@ console.log("el resultado de la division es: " + division) */
 
 /* Muestra mensaje hola, la cantidad de veces que se ha indicado con el número ingresado */
 
-let numeroIng = parseInt (prompt('Ingrese un número'));
+/* let numeroIng = parseInt (prompt('Ingrese un número'));
 for (let numero = 0 ; numero < numeroIng ;numero++) {
     console.log ('hola');
 }
-
+ */
 
 /* Concatena los textos ingresados, hasta que el usuario escriba ESC */
 
-let entrada = prompt('Ingrese un texto').toUpperCase();
+/* let entrada = prompt('Ingrese un texto').toUpperCase();
 let textoConcatenado = '';
 
 while (entrada != 'ESC'){
     textoConcatenado = textoConcatenado + entrada;
     console.log(textoConcatenado);
     entrada = prompt('Ingrese otro texto').toUpperCase();
+} */
+
+/* ==============================================Desafio entregable número 1============================================================ */
+
+const mayonesa = 150
+const gaseosa = 240
+const panLactal = 170
+const cerveza = 130
+const salamin = 320
+const queso = 360
+const cupon='regalo'
+let carritoProductos = 0
+let totalCompra = 0
+
+function descuento(valor){
+    return valor - (valor*0.20)
+}
+function suma (valor){
+    valor = valor + 1
+    return valor
+}
+
+let carrito = prompt('seleccione el numero del producto a agregar'+'\n'+'1)mayonesa'+'\n'
++'2)gaseosa'+'\n'+'3)pan lactal'+'\n'+'4)cerveza'+'\n'+'5)salamin'+'\n'+'6)queso'+'\n'+'Tecla ENTER para salir');
+
+while(carrito!='7'){
+    if (carrito==1){
+        carritoProductos = suma(carritoProductos)
+        totalCompra+=mayonesa;
+        carrito = prompt('seleccione el numero de otro producto a agregar'+'\n'+'1)mayonesa'+'\n'
+        +'2)gaseosa'+'\n'+'3)pan lactal'+'\n'+'4)cerveza'+'\n'+'5)salamin'+'\n'+'6)queso'+'\n'+'7)finalizar compra'+'\n'+'Cantidad de productos: '+carritoProductos+'\n'+'TOTAL hasta el momento $'+totalCompra)
+    }
+    else if (carrito==2){
+        carritoProductos = suma(carritoProductos)
+        totalCompra+=gaseosa
+        carrito = prompt('seleccione el numero de otro producto a agregar'+'\n'+'1)mayonesa'+'\n'
+        +'2)gaseosa'+'\n'+'3)pan lactal'+'\n'+'4)cerveza'+'\n'+'5)salamin'+'\n'+'6)queso'+'\n'+'7)finalizar compra'+'\n'+'Cantidad de productos: '+carritoProductos+'\n'+'TOTAL hasta el momento $'+totalCompra)
+    }
+    else if (carrito==3){
+        carritoProductos = suma(carritoProductos)
+        totalCompra+=panLactal
+        carrito = prompt('seleccione el numero de otro producto a agregar'+'\n'+'1)mayonesa'+'\n'
+        +'2)gaseosa'+'\n'+'3)pan lactal'+'\n'+'4)cerveza'+'\n'+'5)salamin'+'\n'+'6)queso'+'\n'+'7)finalizar compra'+'\n'+'Cantidad de productos: '+carritoProductos+'\n'+'TOTAL hasta el momento $'+totalCompra)
+    }
+    else if (carrito==4){
+        carritoProductos = suma(carritoProductos)
+        totalCompra+=cerveza
+        carrito = prompt('seleccione el numero de otro producto a agregar'+'\n'+'1)mayonesa'+'\n'
+        +'2)gaseosa'+'\n'+'3)pan lactal'+'\n'+'4)cerveza'+'\n'+'5)salamin'+'\n'+'6)queso'+'\n'+'7)finalizar compra'+'\n'+'Cantidad de productos: '+carritoProductos+'\n'+'TOTAL hasta el momento $'+totalCompra)
+    }
+    else if (carrito==5){
+        carritoProductos = suma(carritoProductos)
+        totalCompra+=salamin
+        carrito = prompt('seleccione el numero de otro producto a agregar'+'\n'+'1)mayonesa'+'\n'
+        +'2)gaseosa'+'\n'+'3)pan lactal'+'\n'+'4)cerveza'+'\n'+'5)salamin'+'\n'+'6)queso'+'\n'+'7)finalizar compra'+'\n'+'Cantidad de productos: '+carritoProductos+'\n'+'TOTAL hasta el momento $'+totalCompra)
+    }
+    else if (carrito==6){
+        carritoProductos = suma(carritoProductos)
+        totalCompra+=queso
+        carrito = prompt('seleccione el numero de otro producto a agregar'+'\n'+'1)mayonesa'+'\n'
+        +'2)gaseosa'+'\n'+'3)pan lactal'+'\n'+'4)cerveza'+'\n'+'5)salamin'+'\n'+'6)queso'+'\n'+'7)finalizar compra'+'\n'+'Cantidad de productos: '+carritoProductos+'\n'+'TOTAL hasta el momento $'+totalCompra)
+    }
+}
+
+if(carrito=='7'){
+    let ingresarCupon = prompt('Tiene un cupon de descuento?'+'\n'+'1) Si'+'\n'+'2) No')
+    if(ingresarCupon==1){
+        let validarCupon = prompt('Ingrese su cupon')
+        if(validarCupon==cupon){
+            alert('Cantidad de productos: '+carritoProductos+'\n'+'Su total, con el descuento del 20% es de: '+descuento(totalCompra))
+        }
+        else{
+            alert('Su cupón es invalido'+'\n'+'Cantidad de productos: '+carritoProductos+'\n'+'Su total es de: '+totalCompra)
+        }
+    }
+    else if(ingresarCupon==2){
+        alert('Cantidad de productos: '+carritoProductos+'\n'+'Su total es de: '+totalCompra)
+    }
 }

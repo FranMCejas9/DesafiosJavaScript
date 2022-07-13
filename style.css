@@ -3,13 +3,22 @@
     padding: 0px;
 }
 
-h1{
+h1,h2{
     width: 100vw;
     height: 120px;
     background-color: #eee;
     color: 333;
     font-size: clamp(1rem, 4rem, 5vw);
     text-align: center;
+}
+
+h1 span{
+    color: rgb(255,10, 10);
+}
+
+h2{
+    background-color: #333;
+    color: #fff;
 }
 
 h3{
