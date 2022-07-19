@@ -3,7 +3,7 @@
     padding: 0px;
 }
 
-h1,h2{
+h1{
     width: 100vw;
     height: 120px;
     background-color: #eee;
@@ -12,24 +12,4 @@ h1,h2{
     text-align: center;
 }
 
-h1 span{
-    color: rgb(255,10, 10);
-}
 
-h2{
-    background-color: #333;
-    color: #fff;
-}
-
-h3{
-    width: 100vw;
-    height: 120px;
-    background-color: bisque;
-    color: #fff;
-    font-size: clamp(1rem, 3rem, 4vw);
-    text-align: center;
-}
-
-h3:first-child{
-    background-color: blueviolet;
-}

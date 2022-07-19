@@ -113,7 +113,7 @@ while (entrada != 'ESC'){
     entrada = prompt('Ingrese otro texto').toUpperCase();
 } */
 
-/* ==============================================Desafio entregable número 1============================================================ */
+/* ==============================================Desafio complementario 2============================================================ */
 class Producto {
     constructor (cantidad,producto,precio){
         this.cantidad = cantidad
