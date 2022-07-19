@@ -114,79 +114,152 @@ while (entrada != 'ESC'){
 } */
 
 /* ==============================================Desafio entregable número 1============================================================ */
-
-const mayonesa = 150
-const gaseosa = 240
-const panLactal = 170
-const cerveza = 130
-const salamin = 320
-const queso = 360
-const cupon='regalo'
-let carritoProductos = 0
-let totalCompra = 0
+class Producto {
+    constructor (cantidad,producto,precio){
+        this.cantidad = cantidad
+        this.producto = producto
+        this.precio = precio
+    }
+}
+function sumarProducto(producto){
+    producto.cantidad+=1
+}
 
 function descuento(valor){
     return valor - (valor*0.20)
 }
-function suma (valor){
-    valor = valor + 1
-    return valor
-}
+const carritoProductos = []
+const mayonesa = new Producto (0,'Mayonesa',120)
+const gaseosa = new Producto (0,'Gaseosa', 240)
+const panLactal = new Producto (0,'Pan lactal',220)
+const cerveza = new Producto (0,'Cerveza', 300)
+const salamin = new Producto (0,'Salamin', 360)
+const queso = new Producto (0,'Queso',400)
+const cupon='regalo'
+let totalCompra = 0
 
-let carrito = prompt('seleccione el numero del producto a agregar'+'\n'+'1)mayonesa'+'\n'
-+'2)gaseosa'+'\n'+'3)pan lactal'+'\n'+'4)cerveza'+'\n'+'5)salamin'+'\n'+'6)queso'+'\n'+'Tecla ENTER para salir');
+
+let carrito = prompt(`Seleccione el numero del producto a agregar
+1) Mayonesa
+2) Gaseosa
+3) Pan lactal
+4) Cerveza
+5) Salamin
+6) Queso`);
 
 while(carrito!='7'){
     if (carrito==1){
-        carritoProductos = suma(carritoProductos)
-        totalCompra+=mayonesa;
-        carrito = prompt('seleccione el numero de otro producto a agregar'+'\n'+'1)mayonesa'+'\n'
-        +'2)gaseosa'+'\n'+'3)pan lactal'+'\n'+'4)cerveza'+'\n'+'5)salamin'+'\n'+'6)queso'+'\n'+'7)finalizar compra'+'\n'+'Cantidad de productos: '+carritoProductos+'\n'+'TOTAL hasta el momento $'+totalCompra)
+        carritoProductos.push(mayonesa);
+        totalCompra+=mayonesa.precio;
+        sumarProducto(mayonesa)
+        carrito = prompt(`Seleccione el numero de otro producto a agregar
+        1) Mayonesa
+        2) Gaseosa
+        3) Pan lactal
+        4) Cerveza
+        5) Salamin
+        6) Queso 
+        7)finalizar compra
+        Cantidad de productos: ${carritoProductos.length}
+        TOTAL hasta el momento $${totalCompra}`)
     }
     else if (carrito==2){
-        carritoProductos = suma(carritoProductos)
-        totalCompra+=gaseosa
-        carrito = prompt('seleccione el numero de otro producto a agregar'+'\n'+'1)mayonesa'+'\n'
-        +'2)gaseosa'+'\n'+'3)pan lactal'+'\n'+'4)cerveza'+'\n'+'5)salamin'+'\n'+'6)queso'+'\n'+'7)finalizar compra'+'\n'+'Cantidad de productos: '+carritoProductos+'\n'+'TOTAL hasta el momento $'+totalCompra)
+        carritoProductos.push(gaseosa)
+        totalCompra+=gaseosa.precio
+        sumarProducto(gaseosa)
+        carrito = prompt(`seleccione el numero de otro producto a agregar
+        1) Mayonesa
+        2) Gaseosa
+        3) Pan lactal
+        4) Cerveza
+        5) Salamin
+        6) Queso 
+        7)finalizar compra
+        Cantidad de productos: ${carritoProductos.length}
+        TOTAL hasta el momento $${totalCompra}`)
     }
     else if (carrito==3){
-        carritoProductos = suma(carritoProductos)
-        totalCompra+=panLactal
-        carrito = prompt('seleccione el numero de otro producto a agregar'+'\n'+'1)mayonesa'+'\n'
-        +'2)gaseosa'+'\n'+'3)pan lactal'+'\n'+'4)cerveza'+'\n'+'5)salamin'+'\n'+'6)queso'+'\n'+'7)finalizar compra'+'\n'+'Cantidad de productos: '+carritoProductos+'\n'+'TOTAL hasta el momento $'+totalCompra)
+        carritoProductos.push(panLactal)
+        totalCompra+=panLactal.precio
+        sumarProducto(panLactal)
+        carrito = prompt(`seleccione el numero de otro producto a agregar
+        1) Mayonesa
+        2) Gaseosa
+        3) Pan lactal
+        4) Cerveza
+        5) Salamin
+        6) Queso 
+        7)finalizar compra
+        Cantidad de productos: ${carritoProductos.length}
+        TOTAL hasta el momento $${totalCompra}`)
     }
     else if (carrito==4){
-        carritoProductos = suma(carritoProductos)
-        totalCompra+=cerveza
-        carrito = prompt('seleccione el numero de otro producto a agregar'+'\n'+'1)mayonesa'+'\n'
-        +'2)gaseosa'+'\n'+'3)pan lactal'+'\n'+'4)cerveza'+'\n'+'5)salamin'+'\n'+'6)queso'+'\n'+'7)finalizar compra'+'\n'+'Cantidad de productos: '+carritoProductos+'\n'+'TOTAL hasta el momento $'+totalCompra)
+        carritoProductos.push(cerveza)
+        totalCompra+=cerveza.precio
+        sumarProducto(cerveza)
+        carrito = prompt(`seleccione el numero de otro producto a agregar
+        1) Mayonesa
+        2) Gaseosa
+        3) Pan lactal
+        4) Cerveza
+        5) Salamin
+        6) Queso 
+        7)finalizar compra
+        Cantidad de productos: ${carritoProductos.length}
+        TOTAL hasta el momento $${totalCompra}`)
     }
     else if (carrito==5){
-        carritoProductos = suma(carritoProductos)
-        totalCompra+=salamin
-        carrito = prompt('seleccione el numero de otro producto a agregar'+'\n'+'1)mayonesa'+'\n'
-        +'2)gaseosa'+'\n'+'3)pan lactal'+'\n'+'4)cerveza'+'\n'+'5)salamin'+'\n'+'6)queso'+'\n'+'7)finalizar compra'+'\n'+'Cantidad de productos: '+carritoProductos+'\n'+'TOTAL hasta el momento $'+totalCompra)
+        carritoProductos.push(salamin)
+        totalCompra+=salamin.precio
+        sumarProducto(salamin)
+        carrito = prompt(`seleccione el numero de otro producto a agregar
+        1) Mayonesa
+        2) Gaseosa
+        3) Pan lactal
+        4) Cerveza
+        5) Salamin
+        6) Queso 
+        7)finalizar compra
+        Cantidad de productos: ${carritoProductos.length}
+        TOTAL hasta el momento $${totalCompra}`)
     }
     else if (carrito==6){
-        carritoProductos = suma(carritoProductos)
-        totalCompra+=queso
-        carrito = prompt('seleccione el numero de otro producto a agregar'+'\n'+'1)mayonesa'+'\n'
-        +'2)gaseosa'+'\n'+'3)pan lactal'+'\n'+'4)cerveza'+'\n'+'5)salamin'+'\n'+'6)queso'+'\n'+'7)finalizar compra'+'\n'+'Cantidad de productos: '+carritoProductos+'\n'+'TOTAL hasta el momento $'+totalCompra)
+        carritoProductos.push(queso)
+        totalCompra+=queso.precio
+        sumarProducto(queso)
+        carrito = prompt(`seleccione el numero de otro producto a agregar
+        1) Mayonesa
+        2) Gaseosa
+        3) Pan lactal
+        4) Cerveza
+        5) Salamin
+        6) Queso 
+        7)finalizar compra
+        Cantidad de productos: ${carritoProductos.length}
+        TOTAL hasta el momento $${totalCompra}`)
     }
 }
-
 if(carrito=='7'){
-    let ingresarCupon = prompt('Tiene un cupon de descuento?'+'\n'+'1) Si'+'\n'+'2) No')
+    let ingresarCupon = prompt(`Tiene un cupon de descuento?
+    1) Si
+    2) No`)
     if(ingresarCupon==1){
         let validarCupon = prompt('Ingrese su cupon')
         if(validarCupon==cupon){
-            alert('Cantidad de productos: '+carritoProductos+'\n'+'Su total, con el descuento del 20% es de: '+descuento(totalCompra))
+            alert(`Cantidad de productos: ${carritoProductos.length}
+            Su total, con el descuento del 20% es de: $${descuento(totalCompra)}`)
+            console.log(carritoProductos)
         }
         else{
-            alert('Su cupón es invalido'+'\n'+'Cantidad de productos: '+carritoProductos+'\n'+'Su total es de: '+totalCompra)
+            alert(`Su cupón es invalido
+            Cantidad de productos: ${carritoProductos.length}
+            Su total es de: $${+totalCompra}`)
+            console.log(carritoProductos)
         }
     }
     else if(ingresarCupon==2){
-        alert('Cantidad de productos: '+carritoProductos+'\n'+'Su total es de: '+totalCompra)
+        alert(`Cantidad de productos: ${carritoProductos.length}
+        Su total es de: $${+totalCompra}`)
+        console.log(carritoProductos)
     }
 }

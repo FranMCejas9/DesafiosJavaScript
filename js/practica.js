@@ -320,3 +320,96 @@ while(valor!='ESC'){
     alert(validacion(valor));
     valor = prompt('ingrese un parametro').toUpperCase();
 } */
+
+/* class Tienda {
+    constructor (nombre,direccion,propietario,rubro){
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.propietario =  propietario;
+        this.rubro =  rubro;
+    };
+    estaAbierto(hora){
+        if(((hora>=8)&&(hora<=12))||((hora>=15)&&(hora<=19))){
+            return true
+        }
+        return false 
+    };
+    esPropietario(nombre){
+        return this.nombre = nombre;
+    }
+}
+
+const tienda1 = new Tienda("Kwik-E-Mart", "Park 123", "Apu", "Almacen");
+const tienda2 = new Tienda("Edna's Edibles", "PEREZ 323", "Edna Krabappel", "Panaderia");
+const tienda3 = new Tienda("Springfield Mall", "Hall 231", "Mr. Burns", "Shopping");
+
+for (let index = 0; index < 5; index++) {
+    let entrada = prompt("INGRESAR NOMBRE DE PROPITARIO");
+    if (tienda1.esPropietario(entrada)){
+    alert(entrada + " ES PROPIETARIO DE LA TIENDA " + tienda1.nombre);
+    }
+    if (tienda2.esPropietario(entrada)){
+    alert(entrada + " ES PROPIETARIO DE LA TIENDA " + tienda2.nombre);
+    }
+    if (tienda3.esPropietario(entrada)){
+    alert(entrada + " ES PROPIETARIO DE LA TIENDA " + tienda3.nombre);
+    }
+} */
+
+/*     const tienda4 = new Tienda("33 cents Store", "Cheap 231", "Barato SRL","Ropa");
+
+    for (let index = 0; index < 3 ; index++) {
+        let entrada = parseInt(prompt("INGRESAR HORA EN PUNTO"));
+        if(tienda4.estaAbierto(entrada)){
+            alert("LA TIENDA ESTA ABIERTA A LAS "+entrada)
+        }else{
+            alert("LA TIENDA ESTA CERRADA A LAS "+entrada)
+        }
+    } */
+/* 
+class Cliente{
+    constructor(nombre,presupuesto,descuento,telefono){
+        this.nombre=nombre;
+        this.presupuesto=parseFloat(presupuesto);
+        this.descuento=descuento;
+        this.telefono=telefono;
+    }
+    transferirDinero(valor){
+        if((valor<=this.presupuesto)&&(valor>0)){
+            this.presupuesto -= valor
+            return valor
+        }
+        else {
+            return 0
+        }
+    }
+}
+
+const cliente1 = new Cliente('Franco',4000,true,'403050');
+const cliente2 = new Cliente('Tiago',10000,true,'556080');
+const cliente3 = new Cliente('Camila',2000,true,'102456');
+
+
+for(let i=0;i<5;i++){
+    let dinero = prompt('Ingrese el valor');
+    if (cliente1.transferirDinero(dinero)){
+        alert("EL CLIENTE " + cliente1.nombre+ " TE PUEDE PAGAR "+dinero);
+    }
+    if (cliente2.transferirDinero(dinero)){
+        alert("EL CLIENTE " + cliente2.nombre+ " TE PUEDE PAGAR "+dinero);
+    }
+    if (cliente3.transferirDinero(dinero)){
+        alert("EL CLIENTE " + cliente3.nombre+ " TE PUEDE PAGAR "+dinero);
+    }
+} */
+
+
+
+/* ===================================================Array======================================================= */
+
+/* 
+const equipo = ['Franco','Tiago','Camila','Gabriel'];
+
+for(integrante of equipo){
+    alert("POSICION " + equipo.length + " JUGADOR " + integrante)
+} */
