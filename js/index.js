@@ -19,7 +19,7 @@ let pregunta = prompt('Quieres ver la lista de productos? (Seleccionar si o no)'
 
 if(pregunta === 'si'){
     let listaProductos = productos.map((el)=> `
-Producto: ${el.producto}  Color: ${el.color}  Precio:${el.precio}`)
+    Producto: ${el.producto}  Color: ${el.color}  Precio:${el.precio}`)
     alert(`Ésta es nuestra lista de productos: ${listaProductos.join('')}`)
 }
 else if (pregunta === 'no'){
@@ -107,17 +107,9 @@ if (pregunta == 'no'){
             Unidades: ${el.unidades}
             Total a pagar con descuento: ${descuento((el.unidades*el.precio))}`
             )})
-        break
+            break
         }
         else alert('cupon incorrecto')
-            alert('Gracias por su compra')
-            carritoProductos.forEach((el)=>{
-            console.log(
-            `Producto: ${el.producto}
-            Color: ${el.color}
-            Unidades: ${el.unidades}
-            Total a pagar: $${el.unidades * el.precio}`
-            )})
         break
         case 'no':
         alert('Gracias por su compra')
@@ -131,3 +123,6 @@ if (pregunta == 'no'){
         break
     }   
     }
+
+    const total = carritoProductos.reduce((acc,el)=> acc + el.precio*el.unidades, 0)
+    console.log(`Compra total: $${total}`)
