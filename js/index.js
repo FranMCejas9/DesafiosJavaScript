@@ -1,265 +1,133 @@
 
-/* let n1 = prompt ("ingrese un numero");
-
-const resultado = n1 * n1 * n1 
-
-alert (resultado) calcular numeros al cubo*/ 
-
-
-/* let anioActual = prompt ("ingrese año actual");
-let anioNacimiento = prompt ("ingrese año de nacimiento");
-
-const resultado = anioActual - anioNacimiento;
-
-alert ("tu edad es: " + resultado)  calcular edad */
-
-
-/* let kilometros = prompt ("ingrese km que hay entre las ciudades");
-let velocidad = prompt ("ingrese a la velocidad que va");
-
-const tiempo = kilometros / velocidad;
-
-alert ("el tiempo estimado de llegada es: " + tiempo)  sacar tiempo estimado*/
-
-
-
-/* let sueldo = parseInt(prompt("Ingrese sueldo total"));
-
-const porcentaje =  sueldo * 5 / 100;
-
-const sueldoFinal = sueldo + porcentaje;
-
-alert ('Su sueldo es de : ' + sueldoFinal) Sacar porcentaje;
- */
-
-
-/* let nota1 = parseInt (prompt("ingrese nota 1"));
-let nota2 = parseInt (prompt("ingrese nota 2"));
-let nota3 = parseInt (prompt("ingrese nota 3"));
-
-let promedio = nota1+nota2+nota3;
-
-let resultado = promedio / 3;
-
-alert ("su nota promedio es: " + resultado)  Sacar promedio*/
-
-
-/* 
-let monto = parseInt(prompt("Ingrese monto total"));
-
-const porcentaje =  monto * 15 / 100;
-
-const montoFinal = monto - porcentaje;
-
-alert ('Su monto final es de: ' + montoFinal);
-
- */
-
-
-
-/* 
-let hombres = parseInt(prompt("Ingrese cantidad de hombres"));
-
-let mujeres = parseInt(prompt("Ingrese cantidad de mujeres"));
-
-const cantidadTotal = hombres + mujeres;
-
-const porcentajeH =  hombres / cantidadTotal;
-
-const porcentajeM =  mujeres / cantidadTotal;
-
-alert ('El promedio de hombres es de : ' + porcentajeH);
-
-alert ('El promedio de mujeres es de : ' + porcentajeM)
-
- */
-
-/* let numero1 = parseInt (prompt("Ingrese un numero"))
-let numero2 = parseInt (prompt("Ingrese otro numero"))
-
-const suma = numero1 + numero2;
-const resta = numero1 - numero2;
-const multiplicacion = numero1 * numero2;
-const division = numero1 / numero2;
-
-console.log("el resultado de la suma es: " + suma)
-console.log("el resultado de la resta es: " + resta)
-console.log("el resultado de la multiplicacion es: " + multiplicacion)
-console.log("el resultado de la division es: " + division) */
-
-
-
-
-
-/* =================================================Desafío JS============================================================= */
-
-
-/* Muestra mensaje hola, la cantidad de veces que se ha indicado con el número ingresado */
-
-/* let numeroIng = parseInt (prompt('Ingrese un número'));
-for (let numero = 0 ; numero < numeroIng ;numero++) {
-    console.log ('hola');
-}
- */
-
-/* Concatena los textos ingresados, hasta que el usuario escriba ESC */
-
-/* let entrada = prompt('Ingrese un texto').toUpperCase();
-let textoConcatenado = '';
-
-while (entrada != 'ESC'){
-    textoConcatenado = textoConcatenado + entrada;
-    console.log(textoConcatenado);
-    entrada = prompt('Ingrese otro texto').toUpperCase();
-} */
-
-/* ==============================================Desafio complementario 2============================================================ */
-class Producto {
-    constructor (cantidad,producto,precio){
-        this.cantidad = cantidad
-        this.producto = producto
-        this.precio = precio
-    }
-}
-function sumarProducto(producto){
-    producto.cantidad+=1
-}
-
 function descuento(valor){
     return valor - (valor*0.20)
 }
+
+const productos = [{'producto':'gorro','color' : 'rosa','precio': '1000'},
+{'producto':'gorro','color' : 'aqua','precio': '1000'},
+{'producto':'gorro','color' : 'mostaza','precio': '1000'},
+{'producto':'gorro','color' : 'arena','precio': '1000'},
+{'producto':'cartera','color' : 'blanca','precio': '1200'},
+{'producto':'cartera','color' : 'marron','precio': '1200'},
+{'producto':'cartera','color' : 'negra','precio': '1200'},
+{'producto':'bandolera','color' : 'blanca','precio': '1400'},
+{'producto':'bandolera','color' : 'negra','precio': '1400'}]
+
 const carritoProductos = []
-const mayonesa = new Producto (0,'Mayonesa',120)
-const gaseosa = new Producto (0,'Gaseosa', 240)
-const panLactal = new Producto (0,'Pan lactal',220)
-const cerveza = new Producto (0,'Cerveza', 300)
-const salamin = new Producto (0,'Salamin', 360)
-const queso = new Producto (0,'Queso',400)
-const cupon='regalo'
-let totalCompra = 0
 
+let pregunta = prompt('Quieres ver la lista de productos? (Seleccionar si o no)')
 
-let carrito = prompt(`Seleccione el numero del producto a agregar
-1) Mayonesa
-2) Gaseosa
-3) Pan lactal
-4) Cerveza
-5) Salamin
-6) Queso`);
-
-while(carrito!='7'){
-    if (carrito==1){
-        carritoProductos.push(mayonesa);
-        totalCompra+=mayonesa.precio;
-        sumarProducto(mayonesa)
-        carrito = prompt(`Seleccione el numero de otro producto a agregar
-        1) Mayonesa
-        2) Gaseosa
-        3) Pan lactal
-        4) Cerveza
-        5) Salamin
-        6) Queso 
-        7)finalizar compra
-        Cantidad de productos: ${carritoProductos.length}
-        TOTAL hasta el momento $${totalCompra}`)
-    }
-    else if (carrito==2){
-        carritoProductos.push(gaseosa)
-        totalCompra+=gaseosa.precio
-        sumarProducto(gaseosa)
-        carrito = prompt(`seleccione el numero de otro producto a agregar
-        1) Mayonesa
-        2) Gaseosa
-        3) Pan lactal
-        4) Cerveza
-        5) Salamin
-        6) Queso 
-        7)finalizar compra
-        Cantidad de productos: ${carritoProductos.length}
-        TOTAL hasta el momento $${totalCompra}`)
-    }
-    else if (carrito==3){
-        carritoProductos.push(panLactal)
-        totalCompra+=panLactal.precio
-        sumarProducto(panLactal)
-        carrito = prompt(`seleccione el numero de otro producto a agregar
-        1) Mayonesa
-        2) Gaseosa
-        3) Pan lactal
-        4) Cerveza
-        5) Salamin
-        6) Queso 
-        7)finalizar compra
-        Cantidad de productos: ${carritoProductos.length}
-        TOTAL hasta el momento $${totalCompra}`)
-    }
-    else if (carrito==4){
-        carritoProductos.push(cerveza)
-        totalCompra+=cerveza.precio
-        sumarProducto(cerveza)
-        carrito = prompt(`seleccione el numero de otro producto a agregar
-        1) Mayonesa
-        2) Gaseosa
-        3) Pan lactal
-        4) Cerveza
-        5) Salamin
-        6) Queso 
-        7)finalizar compra
-        Cantidad de productos: ${carritoProductos.length}
-        TOTAL hasta el momento $${totalCompra}`)
-    }
-    else if (carrito==5){
-        carritoProductos.push(salamin)
-        totalCompra+=salamin.precio
-        sumarProducto(salamin)
-        carrito = prompt(`seleccione el numero de otro producto a agregar
-        1) Mayonesa
-        2) Gaseosa
-        3) Pan lactal
-        4) Cerveza
-        5) Salamin
-        6) Queso 
-        7)finalizar compra
-        Cantidad de productos: ${carritoProductos.length}
-        TOTAL hasta el momento $${totalCompra}`)
-    }
-    else if (carrito==6){
-        carritoProductos.push(queso)
-        totalCompra+=queso.precio
-        sumarProducto(queso)
-        carrito = prompt(`seleccione el numero de otro producto a agregar
-        1) Mayonesa
-        2) Gaseosa
-        3) Pan lactal
-        4) Cerveza
-        5) Salamin
-        6) Queso 
-        7)finalizar compra
-        Cantidad de productos: ${carritoProductos.length}
-        TOTAL hasta el momento $${totalCompra}`)
-    }
+if(pregunta === 'si'){
+    let listaProductos = productos.map((el)=> `
+Producto: ${el.producto}  Color: ${el.color}  Precio:${el.precio}`)
+    alert(`Ésta es nuestra lista de productos: ${listaProductos.join('')}`)
 }
-if(carrito=='7'){
-    let ingresarCupon = prompt(`Tiene un cupon de descuento?
-    1) Si
-    2) No`)
-    if(ingresarCupon==1){
-        let validarCupon = prompt('Ingrese su cupon')
-        if(validarCupon==cupon){
-            alert(`Cantidad de productos: ${carritoProductos.length}
-            Su total, con el descuento del 20% es de: $${descuento(totalCompra)}`)
-            console.log(carritoProductos)
-        }
-        else{
-            alert(`Su cupón es invalido
-            Cantidad de productos: ${carritoProductos.length}
-            Su total es de: $${+totalCompra}`)
-            console.log(carritoProductos)
-        }
-    }
-    else if(ingresarCupon==2){
-        alert(`Cantidad de productos: ${carritoProductos.length}
-        Su total es de: $${+totalCompra}`)
-        console.log(carritoProductos)
-    }
+else if (pregunta === 'no'){
+    alert('Gracias por visitarnos, hasta pronto')
 }
+
+while(pregunta != 'no'){
+    let producto = prompt('agregue un producto al carrito')
+    let precio = 0
+    let color = 0 
+    if (producto === 'gorro'|| producto === 'cartera' || producto === 'bandolera'){
+        switch(producto){
+            case 'gorro':
+                pregunta = prompt('seleccione un color');
+                if(pregunta == 'rosa' ||pregunta == 'aqua' ||pregunta == 'mostaza' ||pregunta == 'arena'){
+                    switch(pregunta){
+                        case 'rosa':
+                        color = 'rosa'
+                        break
+                        case 'aqua':
+                        color = 'aqua'
+                        break
+                        case 'mostaza':
+                        color = 'mostaza'
+                        break
+                        case 'arena':
+                        color = 'arena'
+                        break
+                    }
+            precio = 1000
+            break
+                }
+            case 'bandolera':
+                pregunta = prompt('seleccione un color');
+                if(pregunta == 'blanca' ||pregunta == 'negra'){
+                    switch(pregunta){
+                        case 'blanca':
+                        color = 'rosa'
+                        break
+                        case 'negra':
+                        color = 'negra'
+                        break
+                    }
+            precio = 1400
+            break
+                    }
+            case 'cartera':
+                pregunta = prompt('seleccione un color');
+                if(pregunta == 'blanca' ||pregunta == 'marron' ||pregunta == 'negra'){
+                    switch(pregunta){
+                        case 'blanca':
+                        color = 'blanca'
+                        break
+                        case 'marron':
+                        color = 'marron'
+                        break
+                        case 'negra':
+                        color = 'negra'
+                        break
+                    }
+                }
+            precio = 1200
+            break
+            }
+            let unidades = parseFloat(prompt('cuantás unidades quiere llevar?'));
+            carritoProductos.push({producto, color, unidades, precio})
+        }else {
+            alert('Producto no encontrado')
+        }  
+    pregunta = prompt('desea agregar otro producto? Seleccione si o no')
+}
+
+if (pregunta == 'no'){
+    let descuentoCupon = prompt('tiene cupon de descuento? si o no')
+    switch(descuentoCupon){
+        case 'si':
+        pregunta = prompt('ingrese cupon')
+        if(pregunta == 'regalo'){
+            alert('descuentazo')
+            alert('Gracias por su compra')
+            carritoProductos.forEach((el)=>{
+            console.log(
+            `Producto: ${el.producto}
+            Color: ${el.color}
+            Unidades: ${el.unidades}
+            Total a pagar con descuento: ${descuento((el.unidades*el.precio))}`
+            )})
+        break
+        }
+        else alert('cupon incorrecto')
+            alert('Gracias por su compra')
+            carritoProductos.forEach((el)=>{
+            console.log(
+            `Producto: ${el.producto}
+            Color: ${el.color}
+            Unidades: ${el.unidades}
+            Total a pagar: $${el.unidades * el.precio}`
+            )})
+        break
+        case 'no':
+        alert('Gracias por su compra')
+        carritoProductos.forEach((el)=>{
+        console.log(
+        `Producto: ${el.producto}
+        Color: ${el.color}
+        Unidades: ${el.unidades}
+        Total a pagar: $${el.unidades * el.precio}`
+        )})
+        break
+    }   
+    }

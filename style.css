@@ -1,15 +1,201 @@
-*{
-    margin: 0px;
-    padding: 0px;
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.productos {
+  background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
 }
 
-h1{
-    width: 100vw;
-    height: 120px;
-    background-color: #eee;
-    color: 333;
-    font-size: clamp(1rem, 4rem, 5vw);
+.secciones {
+  text-align: center;
+}
+.secciones a {
+  font-size: clamp(1rem, 1.5vw, 3rem);
+  width: 100%;
+}
+
+.logo {
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-family: "Lobster", cursive;
+  color: #eee;
+}
+.logo span {
+  font-size: clamp(2rem, 3vw, 3rem);
+  color: #845EC2;
+}
+
+.background {
+  height: 90vh;
+  min-height: 60vh;
+  background-image: url(img/Background.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.background h1 {
+  font-size: clamp(3rem, 5vw, 7rem);
+  text-align: center;
+  width: 100%;
+  background-color: rgba(136, 136, 136, 0.3);
+  color: #fff;
+  text-shadow: 0.1rem 0.1rem #333;
+}
+
+.banner {
+  background-color: #845EC2;
+  text-transform: uppercase;
+}
+.banner .textos {
+  height: 200px;
+}
+.banner .textos h5 {
+  color: #eee;
+}
+
+.articuloTitulo {
+  font-size: clamp(2.3rem, 3vw, 3rem);
+  color: #eee;
+  background-color: #333;
+}
+
+.articulos {
+  text-align: center;
+}
+.articulos img {
+  border-radius: 1rem 1rem 0px 0px;
+  box-shadow: 0.2rem 0px 0.3rem rgba(136, 136, 136, 0.5);
+}
+.articulos .articulosColor {
+  border-radius: 0%;
+  box-shadow: 0.2rem 0px 0.3rem rgba(136, 136, 136, 0.5);
+  background-color: #845EC2;
+}
+.articulos .articulosColor h5 {
+  padding: 1rem;
+  margin: 0%;
+  color: #eee;
+  font-size: clamp(2rem, 2.5vw, 2rem);
+}
+.articulos div {
+  height: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid #333;
+  border-radius: 0px 0px 2rem 2rem;
+  background-color: #eee;
+  box-shadow: 0.2rem 0.1rem 0.3rem rgba(136, 136, 136, 0.5);
+}
+.articulos div p {
+  width: 100px;
+  margin: 0px;
+  font-size: clamp(1.4rem, 1.4vw, 3rem);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #333;
+}
+.articulos div a {
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  font-size: clamp(1.4rem, 1.4vw, 3rem);
+  text-decoration: none;
+  margin: 0%;
+  color: #eee;
+  background-color: #845EC2;
+  padding: clamp(2px, 0.3rem, 0.5rem);
+  border-radius: 0.4rem;
+  transition: all 0.3s;
+}
+.articulos div a:hover {
+  background-color: #333;
+  color: #eee;
+  transition: all 0.3s;
+}
+
+.productoPrecio {
+  color: #eee;
+}
+
+.verMas {
+  margin-bottom: 1%;
+}
+.verMas a {
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  font-size: clamp(1.4rem, 1.4vw, 3rem);
+  text-decoration: none;
+  margin: 0%;
+  color: #eee;
+  background-color: #845EC2;
+  padding: clamp(2px, 0.3rem, 0.5rem);
+  border-radius: 0.4rem;
+  transition: all 0.3s;
+}
+.verMas a:hover {
+  background-color: #333;
+  color: #eee;
+  transition: all 0.3s;
+}
+
+.enlaces p {
+  font-size: 1rem, 1.4vw;
+}
+.enlaces a {
+  background-color: #eee;
+  border-radius: 0.5rem;
+  width: 3rem;
+  height: 3rem;
+  margin: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.4s;
+}
+.enlaces a:hover {
+  transform: scale(1.1);
+  background-color: #845EC2;
+  transition: all 0.4s;
+}
+.enlaces a:hover i {
+  color: #eee;
+}
+.enlaces a i {
+  color: #845EC2;
+}
+
+.whatsapp {
+  z-index: 1;
+  background-color: #845EC2;
+  border-radius: 50%;
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  text-decoration: none;
+  right: 5%;
+  bottom: 10%;
+}
+
+@media screen and (max-width: 992px) {
+  .logo {
     text-align: center;
+    margin: 0px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .articulos div p {
+    width: 100%;
+  }
 }
 
-
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.productos{
+    background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+}
+
+.secciones{
+    text-align: center;
+    a{
+        font-size: clamp(1rem, 1.5vw, 3rem); 
+        width: 100%;
+    }
+}
+
+.logo {
+    font-size: clamp(2rem, 3vw, 3rem); 
+    font-family: 'Lobster', cursive;
+    color: #eee;
+    span{
+        font-size: clamp(2rem, 3vw, 3rem); 
+        color: #845EC2;
+    }
+}
+
+.background{
+    height: 90vh;
+    min-height: 60vh;
+    background-image: url(img/Background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h1{
+        font-size: clamp(3rem, 5vw, 7rem); 
+        text-align: center;
+        width: 100%;
+        background-color: rgba($color: #888, $alpha: 0.3);
+        color: #fff;
+        text-shadow: 0.1rem 0.1rem #333;
+    }
+}
+.banner{
+    background-color: #845EC2;
+    text-transform: uppercase;
+    .textos {
+        height: 200px;
+        h5{
+            color: #eee;
+        }
+    }
+}
+
+.articuloTitulo{
+    font-size: clamp(2.3rem, 3vw, 3rem); 
+    color: #eee;
+    background-color: #333;
+}
+.articulos {
+    text-align: center;
+    img{
+        border-radius: 1rem 1rem 0px 0px;
+        box-shadow: 0.2rem 0px 0.3rem rgba($color: #888, $alpha: 0.5);
+    }
+    .articulosColor{
+        border-radius: 0%;
+        box-shadow: 0.2rem 0px 0.3rem rgba($color: #888, $alpha: 0.5);
+        background-color: #845EC2;
+        h5{
+            padding: 1rem;
+            margin: 0%;
+            color: #eee;
+            font-size: clamp(2rem, 2.5vw, 2rem); 
+        }
+    }
+    div{
+        height: 100px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 2px solid #333;
+        border-radius: 0px 0px 2rem 2rem;
+        background-color: #eee;
+        box-shadow: 0.2rem 0.1rem 0.3rem rgba($color: #888, $alpha: 0.5);
+        p{
+            width: 100px;
+            margin: 0px;
+            font-size: clamp(1.4rem, 1.4vw, 3rem); 
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: #333;
+        }
+        a{
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            font-size: clamp(1.4rem, 1.4vw, 3rem); 
+            text-decoration: none;
+            margin: 0%;
+            color: #eee;
+            background-color: #845EC2;
+            padding: clamp(2px, 0.3rem, 0.5rem); 
+            border-radius: 0.4rem;
+            transition: all 0.3s;
+            &:hover{
+                background-color: #333;
+                color: #eee;
+                transition: all 0.3s;
+            }
+        }
+    }
+    
+}
+
+.productoPrecio{
+    color: #eee;
+}
+
+.verMas{
+    margin-bottom: 1%;
+    a{
+        height: 2rem;
+        display: flex;
+        align-items: center;
+        font-size: clamp(1.4rem, 1.4vw, 3rem); 
+        text-decoration: none;
+        margin: 0%;
+        color: #eee;
+        background-color: #845EC2;
+        padding: clamp(2px, 0.3rem, 0.5rem); 
+        border-radius: 0.4rem;
+        transition: all 0.3s;
+        &:hover{
+            background-color: #333;
+            color: #eee;
+            transition: all 0.3s;
+        }
+    }
+}
+.enlaces{
+    p{
+        font-size: (min(1rem), 1.4vw);
+    }
+    a{
+        background-color: #eee;
+        border-radius: 0.5rem;
+        width: 3rem;
+        height: 3rem;
+        margin: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: all 0.4s;
+        &:hover{
+            transform: scale(1.1);
+            background-color: #845EC2;
+            transition: all 0.4s;
+            i{
+                color: #eee;
+            }
+        }
+        i{
+            color: #845EC2;
+        }
+    }
+}
+.whatsapp{
+    z-index: 1;
+    background-color: #845EC2;;
+    border-radius: 50%;
+    width: 3.5rem;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    text-decoration: none;
+    right: 5%;
+    bottom: 10%;
+}
+
+
+@media screen and (max-width:992px) {
+    .logo{
+        text-align: center;
+        margin: 0px;
+    }
+}
+
+@media screen and (max-width:576px) {
+    .articulos {
+        
+        div{
+            p{
+                width: 100%;
+            }
+            }
+        }
+        
+}
