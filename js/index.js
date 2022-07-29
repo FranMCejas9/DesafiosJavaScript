@@ -2,16 +2,64 @@
 function descuento(valor){
     return valor - (valor*0.20)
 }
+let contenedor = document.querySelector('#containerProduct');
+function escribirHTML (producto,color,precio,cantidad){
+    let productorAgregado = document.createElement('div')
+    productorAgregado.innerHTML = `<h2>Producto: ${producto}</h2>
+    <p>Color: ${color}</p>
+    <p>Precio: ${precio}</p>
+    <p>Cantidad: ${cantidad}</p>`
+    contenedor.appendChild(productorAgregado)
+}
 
-const productos = [{'producto':'gorro','color' : 'rosa','precio': '1000'},
-{'producto':'gorro','color' : 'aqua','precio': '1000'},
-{'producto':'gorro','color' : 'mostaza','precio': '1000'},
-{'producto':'gorro','color' : 'arena','precio': '1000'},
-{'producto':'cartera','color' : 'blanca','precio': '1200'},
-{'producto':'cartera','color' : 'marron','precio': '1200'},
-{'producto':'cartera','color' : 'negra','precio': '1200'},
-{'producto':'bandolera','color' : 'blanca','precio': '1400'},
-{'producto':'bandolera','color' : 'negra','precio': '1400'}]
+
+const productos = [
+    { 
+        producto: 'gorro',
+        color : 'rosa',
+        precio : 1000
+    },
+    {
+        producto:'gorro',
+        color : 'aqua',
+        precio: 1000
+    },
+    {
+        producto:'gorro',
+        color: 'mostaza',
+        precio: 1000
+    },
+    {
+        producto:'gorro',
+        color : 'arena',
+        precio: 1000
+    },
+    {
+        producto:'cartera',
+        color : 'blanca',
+        precio: 1200
+    },
+    {
+        producto:'cartera',
+        color : 'marron',
+        precio: 1200
+    },
+    {
+        producto:'cartera',
+        color : 'negra',
+        precio: 1200
+    },
+    {
+        producto:'bandolera',
+        color : 'blanca',
+        precio: 1400
+    },
+    {
+        producto:'bandolera',
+        color : 'negra',
+        precio: 1400
+    }
+]
 
 const carritoProductos = []
 
@@ -91,38 +139,11 @@ while(pregunta != 'no'){
         }  
     pregunta = prompt('desea agregar otro producto? Seleccione si o no')
 }
-
-if (pregunta == 'no'){
-    let descuentoCupon = prompt('tiene cupon de descuento? si o no')
-    switch(descuentoCupon){
-        case 'si':
-        pregunta = prompt('ingrese cupon')
-        if(pregunta == 'regalo'){
-            alert('descuentazo')
-            alert('Gracias por su compra')
-            carritoProductos.forEach((el)=>{
-            console.log(
-            `Producto: ${el.producto}
-            Color: ${el.color}
-            Unidades: ${el.unidades}
-            Total a pagar con descuento: ${descuento((el.unidades*el.precio))}`
-            )})
-            break
-        }
-        else alert('cupon incorrecto')
-        break
-        case 'no':
-        alert('Gracias por su compra')
-        carritoProductos.forEach((el)=>{
-        console.log(
-        `Producto: ${el.producto}
-        Color: ${el.color}
-        Unidades: ${el.unidades}
-        Total a pagar: $${el.unidades * el.precio}`
-        )})
-        break
-    }   
-    }
-
-    const total = carritoProductos.reduce((acc,el)=> acc + el.precio*el.unidades, 0)
-    console.log(`Compra total: $${total}`)
+    alert('Gracias por su compra')
+    carritoProductos.forEach((el)=>{
+    escribirHTML(el.producto,el.color,el.precio,el.unidades)})
+    const total = carritoProductos.reduce((acc,el)=> acc + el.precio*el.unidades, 0);
+    let totalCompra = document.querySelector('#totalCompra')
+    let sumaTotal = document.createElement('div')
+    sumaTotal.innerHTML = `<p>Total de compra: $${total}</p>`;
+    totalCompra.appendChild(sumaTotal)
