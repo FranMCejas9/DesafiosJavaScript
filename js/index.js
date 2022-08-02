@@ -1,149 +1,153 @@
 
-function descuento(valor){
-    return valor - (valor*0.20)
-}
-let contenedor = document.querySelector('#containerProduct');
-function escribirHTML (producto,color,precio,cantidad){
-    let productorAgregado = document.createElement('div')
-    productorAgregado.innerHTML = `<h2>Producto: ${producto}</h2>
-    <p>Color: ${color}</p>
-    <p>Precio: ${precio}</p>
-    <p>Cantidad: ${cantidad}</p>`
-    contenedor.appendChild(productorAgregado)
-}
-
-
 const productos = [
     { 
+        id: 1,
+        img: 'blanco.jpg',
         producto: 'gorro',
-        color : 'rosa',
+        color : 'blanco',
         precio : 1000
     },
     {
+        id: 2,
+        img: 'mostaza.jpg',
         producto:'gorro',
-        color : 'aqua',
+        color : 'mostaza',
         precio: 1000
     },
     {
+        id: 3,
+        img: 'rojo.jpg',
         producto:'gorro',
-        color: 'mostaza',
+        color: 'rojo',
         precio: 1000
     },
     {
+        id: 4,
+        img: 'verdelimon.jpg',
         producto:'gorro',
-        color : 'arena',
+        color : 'verde limón',
         precio: 1000
     },
     {
+        id: 5,
+        img: 'azul.jpg',
         producto:'cartera',
-        color : 'blanca',
+        color : 'azul',
         precio: 1200
     },
     {
+        id: 6,
+        img: 'lila.jpg',
         producto:'cartera',
-        color : 'marron',
+        color : 'lila',
         precio: 1200
     },
-    {
+    {  
+        id: 7,
+        img: 'negra.jpg',
         producto:'cartera',
         color : 'negra',
         precio: 1200
     },
     {
+        id: 8,
+        img: 'rosa.jpg',
+        producto:'cartera',
+        color : 'rosa',
+        precio: 1200
+    },
+    {
+        id: 9,
+        img: 'negra.jpg',
+        producto:'bandolera',
+        color : 'negra',
+        precio: 1400
+    },
+    {
+        id: 10,
+        img: 'blanca.jpg',
         producto:'bandolera',
         color : 'blanca',
         precio: 1400
     },
     {
+        id: 11,
+        img: 'marron.jpg',
         producto:'bandolera',
-        color : 'negra',
+        color : 'marrón',
+        precio: 1400
+    },
+    {
+        id: 12,
+        img: 'verde.jpg',
+        producto:'bandolera',
+        color : 'verde',
         precio: 1400
     }
 ]
 
-const carritoProductos = []
+const carrito = [];
 
-let pregunta = prompt('Quieres ver la lista de productos? (Seleccionar si o no)')
+let idBoton = ''
 
-if(pregunta === 'si'){
-    let listaProductos = productos.map((el)=> `
-    Producto: ${el.producto}  Color: ${el.color}  Precio:${el.precio}`)
-    alert(`Ésta es nuestra lista de productos: ${listaProductos.join('')}`)
-}
-else if (pregunta === 'no'){
-    alert('Gracias por visitarnos, hasta pronto')
-}
+productos.forEach((producto)=>{
+    idBoton = `idBoton${producto.id}`
+    switch(producto.producto){
+        case 'gorro':
+        let gorrosContainer = document.querySelector('#gorros');
+        gorrosContainer.innerHTML +=
+        `<div class="col-12 col-sm-6 col-lg-4 p-3 articulos" data-aos="fade-up">
+            <img class="w-100" src="../img/gorros/${producto.img}" alt="gorro color ${producto.color}">
+            <div class="articulosColor">
+                <h5>${producto.color}</h5>
+            </div>
+        <div class="">
+            <p class=" productoPrecio ">$${producto.precio}</p>
+            <button class="btn btn-dark" id="${idBoton}">Agregrar al carrito</button">
+        </div>
+        </div>`;
+        break
+        case 'cartera':
+        let carteraContainer  = document.querySelector('#carteras')
+        carteraContainer.innerHTML +=
+        `<div class="col-12 col-sm-6 col-lg-4 p-3 articulos" data-aos="fade-up">
+            <img class="w-100" src="../img/carteras/${producto.img}" alt="cartera color ${producto.color}">
+            <div class="articulosColor">
+                <h5>${producto.color}</h5>
+            </div>
+        <div class="">
+            <p class=" productoPrecio ">$${producto.precio}</p>
+            <button class="btn btn-dark" id="${idBoton}">Agregrar al carrito</button">
+        </div>
+        </div>`
+        break
+        case 'bandolera':
+        let bandoleraContainer  = document.querySelector('#bandoleras')
+        bandoleraContainer.innerHTML +=
+        `<div class="col-12 col-sm-6 col-lg-4 p-3 articulos" data-aos="fade-up">
+            <img class="w-100" src="../img/bandoleras/${producto.img}" alt="bandolera color ${producto.color}">
+            <div class="articulosColor">
+                <h5>${producto.color}</h5>
+            </div>
+        <div class="">
+            <p class=" productoPrecio ">$${producto.precio}</p>
+            <button class="btn btn-dark" id="${idBoton}">Agregrar al carrito</button">
+        </div>
+        </div>`;
+        break
+    }
+})
 
-while(pregunta != 'no'){
-    let producto = prompt('agregue un producto al carrito')
-    let precio = 0
-    let color = 0 
-    if (producto === 'gorro'|| producto === 'cartera' || producto === 'bandolera'){
-        switch(producto){
-            case 'gorro':
-                pregunta = prompt('seleccione un color');
-                if(pregunta == 'rosa' ||pregunta == 'aqua' ||pregunta == 'mostaza' ||pregunta == 'arena'){
-                    switch(pregunta){
-                        case 'rosa':
-                        color = 'rosa'
-                        break
-                        case 'aqua':
-                        color = 'aqua'
-                        break
-                        case 'mostaza':
-                        color = 'mostaza'
-                        break
-                        case 'arena':
-                        color = 'arena'
-                        break
-                    }
-            precio = 1000
-            break
-                }
-            case 'bandolera':
-                pregunta = prompt('seleccione un color');
-                if(pregunta == 'blanca' ||pregunta == 'negra'){
-                    switch(pregunta){
-                        case 'blanca':
-                        color = 'rosa'
-                        break
-                        case 'negra':
-                        color = 'negra'
-                        break
-                    }
-            precio = 1400
-            break
-                    }
-            case 'cartera':
-                pregunta = prompt('seleccione un color');
-                if(pregunta == 'blanca' ||pregunta == 'marron' ||pregunta == 'negra'){
-                    switch(pregunta){
-                        case 'blanca':
-                        color = 'blanca'
-                        break
-                        case 'marron':
-                        color = 'marron'
-                        break
-                        case 'negra':
-                        color = 'negra'
-                        break
-                    }
-                }
-            precio = 1200
-            break
-            }
-            let unidades = parseFloat(prompt('cuantás unidades quiere llevar?'));
-            carritoProductos.push({producto, color, unidades, precio})
-        }else {
-            alert('Producto no encontrado')
-        }  
-    pregunta = prompt('desea agregar otro producto? Seleccione si o no')
-}
-    alert('Gracias por su compra')
-    carritoProductos.forEach((el)=>{
-    escribirHTML(el.producto,el.color,el.precio,el.unidades)})
-    const total = carritoProductos.reduce((acc,el)=> acc + el.precio*el.unidades, 0);
-    let totalCompra = document.querySelector('#totalCompra')
-    let sumaTotal = document.createElement('div')
-    sumaTotal.innerHTML = `<p>Total de compra: $${total}</p>`;
-    totalCompra.appendChild(sumaTotal)
+
+let productoCant = 0
+
+for (let producto of productos){
+    idBoton = `idBoton${producto.id}`;
+    document.getElementById(idBoton).addEventListener('click',()=>{
+        carrito.push(producto)
+        productoCant += 1;
+        document.querySelector('#productosCant').innerHTML=`${productoCant}`
+        alert(`agregaste al carrito ${producto.producto} ${producto.color}`)
+        console.log(carrito)
+        })
+};

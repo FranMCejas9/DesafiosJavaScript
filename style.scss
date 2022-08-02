@@ -5,40 +5,37 @@
     padding: 0;
     box-sizing: border-box;
 }
-
-.productos, #containerProduct{
-    background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+.navbar{
+    position: fixed;
+    width: 100%;
+    z-index: 100;
 }
-#containerProduct{
-    padding: 1rem;
-    display: flex;
-    justify-content: space-around;
-    div{
-        background-color: #fff;
-        font-style: italic;
-        width: 300px;
-        height: 300px;
-        border-radius: 0.4rem;
-        border-bottom: 0.2rem solid #333;
-        h2{
-            border-radius: 0.4rem 0.4rem 0px 0px;
-            text-align: center;
-            background-color: #845EC2;
-            color: #eee;
+.carrito{
+    width: 100px;
+    .carritoIcon{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        i{
+            color: #845EC2;
+            font-size: 1.6rem;
+            position: absolute;
         }
         p{
-            text-align: center;
-            font-size: 1.3rem;
+            margin-left: 0.5rem;
+            width: 1rem;
+            height: 1rem;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border-radius: 50%;
+            span{
+                color: #845EC2;
+            }
         }
     }
-}
-
-#totalCompra{
-    text-align: center;
-    width: 100%;
-    background-color: #845EC2;
-    color: #dfe9f3;
-    font-size:1.3rem;
 }
 .secciones{
     text-align: center;
