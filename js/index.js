@@ -145,8 +145,7 @@ for (let producto of productos){
     idBoton = `idBoton${producto.id}`;
     document.getElementById(idBoton).addEventListener('click',()=>{
         carrito.push(producto)
-        productoCant += 1;
-        document.querySelector('#productosCant').innerHTML=`${productoCant}`
+        document.querySelector('#productosCant').innerHTML=`${carrito.length}`
         alert(`agregaste al carrito ${producto.producto} ${producto.color}`)
         console.log(carrito)
         })
