@@ -138,9 +138,6 @@ productos.forEach((producto)=>{
     }
 })
 
-
-let productoCant = 0
-
 for (let producto of productos){
     idBoton = `idBoton${producto.id}`;
     document.getElementById(idBoton).addEventListener('click',()=>{
