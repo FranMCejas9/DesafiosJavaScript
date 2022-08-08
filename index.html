@@ -38,10 +38,13 @@
                 </ul>
               </div>
             <div class="carrito col-1">
-                <div class="carritoIcon">
+                <a class="carritoIcon btn" id="carritoButton" data-bs-toggle="modal" data-bs-target="#carritoPopUp">
                   <i class="fa-solid fa-cart-shopping"></i>
-                  <p><span id="productosCant">0</span></p>
-                </div>
+                  <div>
+                    <p><span id="productosCant">0</span></p>
+                    <p><span id="totalCarrito"></span></p>
+                  </div>
+                </a>
             </div>
           </div>
         </nav>
@@ -60,6 +63,36 @@
             </h5>
         </div>
     </section>
+    <!-- POPUp -->
+    <div class="modal fade" id="carritoPopUp" tabindex="-1" aria-labelledby="carritoModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="carritoModalLabel">Carrito</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Producto</th>
+                  <th scope="col">Color</th>
+                  <th scope="col">Img</th>
+                  <th scope="col">Precio</th>
+                </tr>
+              </thead>
+              <tbody id="cards">
+              </tbody>
+            </table>
+            <div id="totalCarritoPop"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary" >Finalizar Compra</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Articulos -->
     <section class="container-fluid">
         <div class="productos row bg-black">
@@ -67,19 +100,19 @@
             <div class="col-12 p-0">
               <h2 class="text-center articuloTitulo  p-3 " id="gorrosContainer">Gorros</h2>
             </div>
-            <div id="gorros" class="row"></div>
+            <div id="gorro" class="row"></div>
             <!-- Carteras -->
 
             <div class="col-12 p-0">
               <h2 class="text-center articuloTitulo p-3"  id="carterasContainer">Carteras</h2>
             </div>
-            <div id="carteras" class="row"></div>
+            <div id="cartera" class="row"></div>
 
             <!-- Bandoleras -->
             <div class="col-12 p-0">
               <h2 class="text-center articuloTitulo  p-3"  id="bandolerasContainer">Bandoleras</h2>
             </div>
-            <div id="bandoleras" class="row"></div>
+            <div id="bandolera" class="row"></div>
           </div>
         </div>
     </section>

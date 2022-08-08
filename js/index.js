@@ -1,149 +1,157 @@
 
+const carrito = JSON.parse(localStorage.getItem('carrito')) ?? [];
+const total = localStorage.getItem('totalCarrito') ?? 0;
+document.querySelector('#productosCant').innerHTML= carrito.length;
+document.querySelector('#totalCarrito').innerHTML = `$${total}`
+document.querySelector('#totalCarritoPop').innerHTML = `<p><span>Total de la compra:</span>$${total}</p>`
+
+function crearCardCarrito(){
+    carrito.forEach((producto)=>{
+        document.querySelector('#cards').innerHTML += 
+        `<tr>
+            <td>${producto.categoria}</td>
+            <td>${producto.color}</td>
+            <td><img src= "${producto.img}" style ='width: 100px'></td>
+            <td>$${producto.precio}<button class='btn' onclick='deleteProduct(${producto.id})'>X</button></td>
+        </tr>`
+    })
+}
+
+if (carrito.length > 0){
+crearCardCarrito()
+} 
+
+const deleteProduct = (el) => {
+    document.querySelector('#cards').innerHTML = ''
+    let filtro  = carrito.filter(producto => producto.id == el);
+    let indice = carrito.indexOf(filtro);
+    carrito.splice(indice,1);
+    const total = carrito.reduce((acc,producto)=> acc + producto.precio, 0)
+    localStorage.setItem('carrito',JSON.stringify(carrito));
+    localStorage.setItem('totalCarrito',JSON.stringify(total))
+    document.querySelector('#productosCant').innerHTML= carrito.length;
+    document.querySelector('#totalCarrito').innerHTML = `$${total}`
+    crearCardCarrito()
+    document.querySelector('#totalCarritoPop').innerHTML = 
+    `<p><span>Total de la compra:</span>$${total}</p>`
+}
 const productos = [
     { 
         id: 1,
-        img: 'blanco.jpg',
-        producto: 'gorro',
-        color : 'blanco',
+        img: '../img/gorros/blanco.jpg',
+        categoria: 'gorro',
+        color : 'Blanco',
         precio : 1000
     },
     {
         id: 2,
-        img: 'mostaza.jpg',
-        producto:'gorro',
-        color : 'mostaza',
+        img: '../img/gorros/mostaza.jpg',
+        categoria:'gorro',
+        color : 'Mostaza',
         precio: 1000
     },
     {
         id: 3,
-        img: 'rojo.jpg',
-        producto:'gorro',
-        color: 'rojo',
+        img: '../img/gorros/rojo.jpg',
+        categoria:'gorro',
+        color: 'Rojo',
         precio: 1000
     },
     {
         id: 4,
-        img: 'verdelimon.jpg',
-        producto:'gorro',
-        color : 'verde limón',
+        img: '../img/gorros/verdelimon.jpg',
+        categoria:'gorro',
+        color : 'Verde limón',
         precio: 1000
     },
     {
         id: 5,
-        img: 'azul.jpg',
-        producto:'cartera',
-        color : 'azul',
+        img: '../img/carteras/azul.jpg',
+        categoria:'cartera',
+        color : 'Azul',
         precio: 1200
     },
     {
         id: 6,
-        img: 'lila.jpg',
-        producto:'cartera',
-        color : 'lila',
+        img: '../img/carteras/lila.jpg',
+        categoria:'cartera',
+        color : 'Lila',
         precio: 1200
     },
     {  
         id: 7,
-        img: 'negra.jpg',
-        producto:'cartera',
-        color : 'negra',
+        img: '../img/carteras/negra.jpg',
+        categoria:'cartera',
+        color : 'Negra',
         precio: 1200
     },
     {
         id: 8,
-        img: 'rosa.jpg',
-        producto:'cartera',
-        color : 'rosa',
+        img: '../img/carteras/rosa.jpg',
+        categoria:'cartera',
+        color : 'Rosa',
         precio: 1200
     },
     {
         id: 9,
-        img: 'negra.jpg',
-        producto:'bandolera',
-        color : 'negra',
+        img: '../img/bandoleras/negra.jpg',
+        categoria:'bandolera',
+        color : 'Negra',
         precio: 1400
     },
     {
         id: 10,
-        img: 'blanca.jpg',
-        producto:'bandolera',
-        color : 'blanca',
+        img: '../img/bandoleras/blanca.jpg',
+        categoria:'bandolera',
+        color : 'Blanca',
         precio: 1400
     },
     {
         id: 11,
-        img: 'marron.jpg',
-        producto:'bandolera',
-        color : 'marrón',
+        img: '../img/bandoleras/marron.jpg',
+        categoria:'bandolera',
+        color : 'Marrón',
         precio: 1400
     },
     {
         id: 12,
-        img: 'verde.jpg',
-        producto:'bandolera',
-        color : 'verde',
+        img: '../img/bandoleras/verde.jpg',
+        categoria:'bandolera',
+        color : 'Verde',
         precio: 1400
     }
 ]
 
-const carrito = [];
-
-let idBoton = ''
-
-productos.forEach((producto)=>{
-    idBoton = `idBoton${producto.id}`
-    switch(producto.producto){
-        case 'gorro':
-        let gorrosContainer = document.querySelector('#gorros');
-        gorrosContainer.innerHTML +=
+function crearCard(){
+    productos.forEach((producto)=>{
+        let idBoton = `idBoton${producto.id}`
+        document.getElementById(producto.categoria).innerHTML +=
         `<div class="col-12 col-sm-6 col-lg-4 p-3 articulos" data-aos="fade-up">
-            <img class="w-100" src="../img/gorros/${producto.img}" alt="gorro color ${producto.color}">
-            <div class="articulosColor">
-                <h5>${producto.color}</h5>
-            </div>
-        <div class="">
-            <p class=" productoPrecio ">$${producto.precio}</p>
-            <button class="btn btn-dark" id="${idBoton}">Agregrar al carrito</button">
+        <img class="w-100" src="${producto.img}" alt="${producto.categoria} color ${producto.color}">
+        <div class="articulosColor">
+            <h5>${producto.color}</h5>
         </div>
-        </div>`;
-        break
-        case 'cartera':
-        let carteraContainer  = document.querySelector('#carteras')
-        carteraContainer.innerHTML +=
-        `<div class="col-12 col-sm-6 col-lg-4 p-3 articulos" data-aos="fade-up">
-            <img class="w-100" src="../img/carteras/${producto.img}" alt="cartera color ${producto.color}">
-            <div class="articulosColor">
-                <h5>${producto.color}</h5>
-            </div>
         <div class="">
-            <p class=" productoPrecio ">$${producto.precio}</p>
+            <p class="productoPrecio">$${producto.precio}</p>
             <button class="btn btn-dark" id="${idBoton}">Agregrar al carrito</button">
         </div>
         </div>`
-        break
-        case 'bandolera':
-        let bandoleraContainer  = document.querySelector('#bandoleras')
-        bandoleraContainer.innerHTML +=
-        `<div class="col-12 col-sm-6 col-lg-4 p-3 articulos" data-aos="fade-up">
-            <img class="w-100" src="../img/bandoleras/${producto.img}" alt="bandolera color ${producto.color}">
-            <div class="articulosColor">
-                <h5>${producto.color}</h5>
-            </div>
-        <div class="">
-            <p class=" productoPrecio ">$${producto.precio}</p>
-            <button class="btn btn-dark" id="${idBoton}">Agregrar al carrito</button">
-        </div>
-        </div>`;
-        break
-    }
-})
+        })
+}
+crearCard();
 
 for (let producto of productos){
-    idBoton = `idBoton${producto.id}`;
+    let idBoton = `idBoton${producto.id}`;
     document.getElementById(idBoton).addEventListener('click',()=>{
         carrito.push(producto)
-        document.querySelector('#productosCant').innerHTML=`${carrito.length}`
-        alert(`agregaste al carrito ${producto.producto} ${producto.color}`)
-        console.log(carrito)
+        const total = carrito.reduce((acc,producto)=> acc + producto.precio, 0)
+        localStorage.setItem('totalCarrito',JSON.stringify(total))
+        document.querySelector('#productosCant').innerHTML= carrito.length;
+        document.querySelector('#totalCarrito').innerHTML = `$${total}`
+        localStorage.setItem('carrito',JSON.stringify(carrito))
+        document.querySelector('#totalCarritoPop').innerHTML = 
+        `<p><span>Total de la compra:</span>$${total}</p>`
+        document.querySelector('#cards').innerHTML = ''
+        crearCardCarrito()
         })
 };
