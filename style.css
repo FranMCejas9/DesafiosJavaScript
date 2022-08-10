@@ -5,6 +5,27 @@
   box-sizing: border-box;
 }
 
+.botonBorrar {
+  padding: 0px;
+  margin: 1rem;
+  width: 2rem;
+  height: 2rem;
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #333;
+  transition: all 0.3s;
+}
+.botonBorrar:hover {
+  background-color: #911;
+  color: #fff;
+  border: 1px solid #fff;
+  transition: all 0.3s;
+}
+.botonBorrar p {
+  text-align: center;
+  margin: 0px;
+}
+
 .navbar {
   position: fixed;
   width: 100%;
@@ -43,9 +64,46 @@
 }
 
 .carrito:hover #totalCarrito {
-  display: inline-block;
+  display: block;
+  width: auto;
+  text-align: center;
+  -webkit-animation-name: totalCarrito;
+          animation-name: totalCarrito;
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
+  -webkit-animation-iteration-count: initial;
+          animation-iteration-count: initial;
 }
 
+@-webkit-keyframes totalCarrito {
+  0% {
+    transform: scale(0);
+    width: 0px;
+  }
+  50% {
+    transform: scale(0.5);
+    width: 40px;
+  }
+  100% {
+    transform: scale(1);
+    width: 100%;
+  }
+}
+
+@keyframes totalCarrito {
+  0% {
+    transform: scale(0);
+    width: 0px;
+  }
+  50% {
+    transform: scale(0.5);
+    width: 40px;
+  }
+  100% {
+    transform: scale(1);
+    width: 100%;
+  }
+}
 .totalCarritoPop {
   width: 95%;
   text-align: end;

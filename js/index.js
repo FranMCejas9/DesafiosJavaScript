@@ -2,38 +2,52 @@
 const carrito = JSON.parse(localStorage.getItem('carrito')) ?? [];
 const total = localStorage.getItem('totalCarrito') ?? 0;
 document.querySelector('#productosCant').innerHTML= carrito.length;
-document.querySelector('#totalCarrito').innerHTML = `$${total}`
+document.querySelector('#totalCarrito').innerHTML = `-$${total}`
 document.querySelector('#totalCarritoPop').innerHTML = `<p><span>Total de la compra:</span>$${total}</p>`
-
-function crearCardCarrito(){
-    carrito.forEach((producto)=>{
+crearCardCarrito(carrito)
+/* 
+let buttonPrueba = document.querySelector('#buttonPrueba');
+let contenidoButton = document.createElement('p')
+contenidoButton.innerHTML = `$${total}`
+buttonPrueba.addEventListener('mouseenter',()=>{
+    buttonPrueba.appendChild(contenidoButton)
+    })
+    buttonPrueba.addEventListener('mouseleave',()=>{
+        buttonPrueba.removeChild(contenidoButton)
+    })
+ */
+function crearCardCarrito(e){
+    if (e.length > 0){
+    e.forEach((producto)=>{
         document.querySelector('#cards').innerHTML += 
         `<tr>
             <td>${producto.categoria}</td>
             <td>${producto.color}</td>
             <td><img src= "${producto.img}" style ='width: 100px'></td>
-            <td>$${producto.precio}<button class='btn' onclick='deleteProduct(${producto.id})'>X</button></td>
+            <td>$${producto.precio}<div class='btn botonBorrar' onclick='deleteProduct(${producto.id})'><p>X</p></div></td>
         </tr>`
     })
-}
+}}
 
-if (carrito.length > 0){
-crearCardCarrito()
-} 
+
 
 const deleteProduct = (el) => {
-    document.querySelector('#cards').innerHTML = ''
-    let filtro  = carrito.filter(producto => producto.id == el);
-    let indice = carrito.indexOf(filtro);
+    let indice = carrito.findIndex(indice => indice.id === el)
     carrito.splice(indice,1);
-    const total = carrito.reduce((acc,producto)=> acc + producto.precio, 0)
+    console.log(carrito)
+    const total = sumaCarrito(carrito);
     localStorage.setItem('carrito',JSON.stringify(carrito));
     localStorage.setItem('totalCarrito',JSON.stringify(total))
     document.querySelector('#productosCant').innerHTML= carrito.length;
     document.querySelector('#totalCarrito').innerHTML = `$${total}`
-    crearCardCarrito()
+    document.querySelector('#cards').innerHTML = ''
+    crearCardCarrito(carrito)
     document.querySelector('#totalCarritoPop').innerHTML = 
     `<p><span>Total de la compra:</span>$${total}</p>`
+}
+
+function sumaCarrito(parametro){
+    return parametro.reduce((acc,producto)=> acc + producto.precio, 0);
 }
 const productos = [
     { 
@@ -122,8 +136,8 @@ const productos = [
     }
 ]
 
-function crearCard(){
-    productos.forEach((producto)=>{
+function crearCard(e){
+    e.forEach((producto)=>{
         let idBoton = `idBoton${producto.id}`
         document.getElementById(producto.categoria).innerHTML +=
         `<div class="col-12 col-sm-6 col-lg-4 p-3 articulos" data-aos="fade-up">
@@ -138,13 +152,14 @@ function crearCard(){
         </div>`
         })
 }
-crearCard();
+crearCard(productos);
 
 for (let producto of productos){
     let idBoton = `idBoton${producto.id}`;
     document.getElementById(idBoton).addEventListener('click',()=>{
         carrito.push(producto)
-        const total = carrito.reduce((acc,producto)=> acc + producto.precio, 0)
+        const total = sumaCarrito(carrito);
+        console.log(total)
         localStorage.setItem('totalCarrito',JSON.stringify(total))
         document.querySelector('#productosCant').innerHTML= carrito.length;
         document.querySelector('#totalCarrito').innerHTML = `$${total}`
@@ -152,6 +167,6 @@ for (let producto of productos){
         document.querySelector('#totalCarritoPop').innerHTML = 
         `<p><span>Total de la compra:</span>$${total}</p>`
         document.querySelector('#cards').innerHTML = ''
-        crearCardCarrito()
+        crearCardCarrito(carrito)
         })
 };
