@@ -5,42 +5,29 @@ document.querySelector('#productosCant').innerHTML= carrito.length;
 document.querySelector('#totalCarrito').innerHTML = `-$${total}`
 document.querySelector('#totalCarritoPop').innerHTML = `<p><span>Total de la compra:</span>$${total}</p>`
 crearCardCarrito(carrito)
-/* 
-let buttonPrueba = document.querySelector('#buttonPrueba');
-let contenidoButton = document.createElement('p')
-contenidoButton.innerHTML = `$${total}`
-buttonPrueba.addEventListener('mouseenter',()=>{
-    buttonPrueba.appendChild(contenidoButton)
-    })
-    buttonPrueba.addEventListener('mouseleave',()=>{
-        buttonPrueba.removeChild(contenidoButton)
-    })
- */
+
 function crearCardCarrito(e){
     if (e.length > 0){
-    e.forEach((producto)=>{
+    e.forEach(({id: id,img: img,categoria: cat,color : color,precio: price})=>{
         document.querySelector('#cards').innerHTML += 
         `<tr>
-            <td>${producto.categoria}</td>
-            <td>${producto.color}</td>
-            <td><img src= "${producto.img}" style ='width: 100px'></td>
-            <td>$${producto.precio}<div class='btn botonBorrar' onclick='deleteProduct(${producto.id})'><p>X</p></div></td>
+            <td>${cat}</td>
+            <td>${color}</td>
+            <td><img src= "${img}" style ='width: 100px'></td>
+            <td>$${price}<div class='btn botonBorrar' onclick='deleteProduct(${id})'><p>X</p></div></td>
         </tr>`
     })
 }}
 
-
-
 const deleteProduct = (el) => {
     let indice = carrito.findIndex(indice => indice.id === el)
     carrito.splice(indice,1);
-    console.log(carrito)
     const total = sumaCarrito(carrito);
     localStorage.setItem('carrito',JSON.stringify(carrito));
     localStorage.setItem('totalCarrito',JSON.stringify(total))
     document.querySelector('#productosCant').innerHTML= carrito.length;
     document.querySelector('#totalCarrito').innerHTML = `$${total}`
-    document.querySelector('#cards').innerHTML = ''
+    resetCards('#cards')
     crearCardCarrito(carrito)
     document.querySelector('#totalCarritoPop').innerHTML = 
     `<p><span>Total de la compra:</span>$${total}</p>`
@@ -49,6 +36,11 @@ const deleteProduct = (el) => {
 function sumaCarrito(parametro){
     return parametro.reduce((acc,producto)=> acc + producto.precio, 0);
 }
+
+function resetCards (selector){
+    document.querySelector(selector).innerHTML = ''
+}
+
 const productos = [
     { 
         id: 1,
@@ -137,21 +129,29 @@ const productos = [
 ]
 
 function crearCard(e){
-    e.forEach((producto)=>{
-        let idBoton = `idBoton${producto.id}`
-        document.getElementById(producto.categoria).innerHTML +=
+    e.forEach(({id: id,img: img,categoria: cat,color : color,precio: price})=>{
+        let idBoton = `idBoton${id}`
+        document.getElementById(cat).innerHTML +=
         `<div class="col-12 col-sm-6 col-lg-4 p-3 articulos" data-aos="fade-up">
-        <img class="w-100" src="${producto.img}" alt="${producto.categoria} color ${producto.color}">
+        <img class="w-100" src="${img}" alt="${cat} color ${color}">
         <div class="articulosColor">
-            <h5>${producto.color}</h5>
+            <h5>${color}</h5>
         </div>
-        <div class="">
-            <p class="productoPrecio">$${producto.precio}</p>
+        <div class="d-flex justify-content-around">
+            <p class="productoPrecio">$${price}</p>
             <button class="btn btn-dark" id="${idBoton}">Agregrar al carrito</button">
+            <button class='btn btn-secondary' onclick='verProducto(${id})'>Ver</button>
         </div>
         </div>`
         })
 }
+
+function verProducto (id){
+    const indice = productos.findIndex((producto)=> producto.id === id);
+    localStorage.setItem('verProducto', JSON.stringify(productos[indice]))
+    location.href = '/pages/productos.html'
+}
+
 crearCard(productos);
 
 for (let producto of productos){
@@ -166,7 +166,7 @@ for (let producto of productos){
         localStorage.setItem('carrito',JSON.stringify(carrito))
         document.querySelector('#totalCarritoPop').innerHTML = 
         `<p><span>Total de la compra:</span>$${total}</p>`
-        document.querySelector('#cards').innerHTML = ''
+        resetCards('#cards')
         crearCardCarrito(carrito)
         })
 };

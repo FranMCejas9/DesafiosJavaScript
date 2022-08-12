@@ -114,6 +114,50 @@
   text-transform: capitalize;
 }
 
+#productosVer {
+  padding: 5rem;
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #333;
+  margin: 0px;
+}
+#productosVer .cardProducto {
+  box-shadow: 0px 0px 0.4rem #aaa;
+  border-radius: 1rem;
+  margin-top: 5%;
+  width: 60vw;
+  height: auto;
+  background-color: #999;
+  display: flex;
+  align-items: center;
+}
+#productosVer .cardProducto img {
+  width: 60%;
+}
+#productosVer .cardProducto div {
+  width: 100%;
+  height: 70%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#productosVer .cardProducto div h3 {
+  width: 70%;
+  color: #eee;
+  font-size: clamp(3rem, 3vw, 5vw);
+}
+#productosVer .cardProducto div p {
+  color: #eee;
+  width: 70%;
+  font-size: clamp(1.4rem, 2vw, 3vw);
+}
+#productosVer .cardProducto div button {
+  margin-right: 20%;
+}
+
 .secciones {
   text-align: center;
 }
@@ -177,11 +221,14 @@
   box-shadow: 0.2rem 0px 0.3rem rgba(136, 136, 136, 0.5);
 }
 .articulos .articulosColor {
+  display: flex;
+  justify-content: center;
   border-radius: 0%;
   box-shadow: 0.2rem 0px 0.3rem rgba(136, 136, 136, 0.5);
   background-color: #845EC2;
 }
 .articulos .articulosColor h5 {
+  text-align: center;
   padding: 1rem;
   margin: 0%;
   color: #eee;
@@ -191,7 +238,6 @@
   height: 100px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   align-items: center;
   border-bottom: 2px solid #333;
   border-radius: 0px 0px 2rem 2rem;
@@ -199,55 +245,15 @@
   box-shadow: 0.2rem 0.1rem 0.3rem rgba(136, 136, 136, 0.5);
 }
 .articulos div p {
-  width: 100px;
+  width: 40px;
   margin: 0px;
   font-size: clamp(1.4rem, 1.4vw, 3rem);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: #333;
 }
-.articulos div a {
-  height: 2rem;
-  display: flex;
-  align-items: center;
-  font-size: clamp(1.4rem, 1.4vw, 3rem);
-  text-decoration: none;
-  margin: 0%;
-  color: #eee;
-  background-color: #845EC2;
-  padding: clamp(2px, 0.3rem, 0.5rem);
-  border-radius: 0.4rem;
-  transition: all 0.3s;
-}
-.articulos div a:hover {
-  background-color: #333;
-  color: #eee;
-  transition: all 0.3s;
-}
 
 .productoPrecio {
   color: #eee;
-}
-
-.verMas {
-  margin-bottom: 1%;
-}
-.verMas a {
-  height: 2rem;
-  display: flex;
-  align-items: center;
-  font-size: clamp(1.4rem, 1.4vw, 3rem);
-  text-decoration: none;
-  margin: 0%;
-  color: #eee;
-  background-color: #845EC2;
-  padding: clamp(2px, 0.3rem, 0.5rem);
-  border-radius: 0.4rem;
-  transition: all 0.3s;
-}
-.verMas a:hover {
-  background-color: #333;
-  color: #eee;
-  transition: all 0.3s;
 }
 
 .enlaces p {
