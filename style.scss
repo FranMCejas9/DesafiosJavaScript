@@ -352,4 +352,11 @@
     }
 }
 
-
+@media screen and (max-width:420px){
+    #productosVer{
+        padding: 0px;
+        .cardProducto{
+            margin: 0px;
+        }
+    }   
+}
