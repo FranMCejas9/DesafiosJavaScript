@@ -325,7 +325,7 @@
   padding-left: 10%;
 }
 #productosVer .cardProducto div div button {
-  width: clamp(150px, 2vw, 4vw);
+  width: clamp(200px, 2vw, 4vw);
   font-size: clamp(1rem, 1.3vw, 2vw);
   max-height: 30px;
   min-height: 20px;
