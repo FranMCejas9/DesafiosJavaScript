@@ -264,7 +264,7 @@
     font-family: 'Times New Roman', Times, serif;
     padding: 5rem;
     width: 100vw;
-    height: auto;
+    height: 100%;
     display: flex;
     justify-content: center;
     background-color: #111;
@@ -350,13 +350,4 @@
         text-align: center;
         margin: 0px;
     }
-}
-
-@media screen and (max-width:420px){
-    #productosVer{
-        padding: 0px;
-        .cardProducto{
-            margin: 0px;
-        }
-    }   
 }
