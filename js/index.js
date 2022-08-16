@@ -18,7 +18,6 @@ function crearCardCarrito(e){
         </tr>`
     })
 }}
-
 const deleteProduct = (el) => {
     let indice = carrito.findIndex(indice => indice.id === el)
     carrito.splice(indice,1);
@@ -45,84 +44,84 @@ const productos = [
     { 
         id: 1,
         img: '../img/gorros/blanco.jpg',
-        categoria: 'gorro',
+        categoria: 'Gorro',
         color : 'Blanco',
         precio : 1000
     },
     {
         id: 2,
         img: '../img/gorros/mostaza.jpg',
-        categoria:'gorro',
+        categoria:'Gorro',
         color : 'Mostaza',
         precio: 1000
     },
     {
         id: 3,
         img: '../img/gorros/rojo.jpg',
-        categoria:'gorro',
+        categoria:'Gorro',
         color: 'Rojo',
         precio: 1000
     },
     {
         id: 4,
         img: '../img/gorros/verdelimon.jpg',
-        categoria:'gorro',
+        categoria:'Gorro',
         color : 'Verde limón',
         precio: 1000
     },
     {
         id: 5,
         img: '../img/carteras/azul.jpg',
-        categoria:'cartera',
+        categoria:'Cartera',
         color : 'Azul',
         precio: 1200
     },
     {
         id: 6,
         img: '../img/carteras/lila.jpg',
-        categoria:'cartera',
+        categoria:'Cartera',
         color : 'Lila',
         precio: 1200
     },
     {  
         id: 7,
         img: '../img/carteras/negra.jpg',
-        categoria:'cartera',
+        categoria:'Cartera',
         color : 'Negra',
         precio: 1200
     },
     {
         id: 8,
         img: '../img/carteras/rosa.jpg',
-        categoria:'cartera',
+        categoria:'Cartera',
         color : 'Rosa',
         precio: 1200
     },
     {
         id: 9,
         img: '../img/bandoleras/negra.jpg',
-        categoria:'bandolera',
+        categoria:'Bandolera',
         color : 'Negra',
         precio: 1400
     },
     {
         id: 10,
         img: '../img/bandoleras/blanca.jpg',
-        categoria:'bandolera',
+        categoria:'Bandolera',
         color : 'Blanca',
         precio: 1400
     },
     {
         id: 11,
         img: '../img/bandoleras/marron.jpg',
-        categoria:'bandolera',
+        categoria:'Bandolera',
         color : 'Marrón',
         precio: 1400
     },
     {
         id: 12,
         img: '../img/bandoleras/verde.jpg',
-        categoria:'bandolera',
+        categoria:'Bandolera',
         color : 'Verde',
         precio: 1400
     }
@@ -130,18 +129,20 @@ const productos = [
 
 function crearCard(e){
     e.forEach(({id: id,img: img,categoria: cat,color : color,precio: price})=>{
-        let idBoton = `idBoton${id}`
+        let idBoton = id
         document.getElementById(cat).innerHTML +=
-        `<div class="col-12 col-sm-6 col-lg-4 p-3 articulos" data-aos="fade-up">
-        <img class="w-100" src="${img}" alt="${cat} color ${color}">
-        <div class="articulosColor">
-            <h5>${color}</h5>
-        </div>
-        <div class="d-flex justify-content-around">
-            <p class="productoPrecio">$${price}</p>
-            <button class="btn btn-dark" id="${idBoton}">Agregrar al carrito</button">
-            <button class='btn btn-secondary' onclick='verProducto(${id})'>Ver</button>
-        </div>
+        `<div class="col-12 col-sm-6 col-lg-3 p-3 articulos" data-aos="fade-up">
+            <img class="w-100" src="${img}" alt="${cat} color ${color}">
+            <div class="articulosColor">
+                <h5>${color}</h5>
+            </div>
+            <div class="d-flex justify-content-around">
+                <div id='buttonVer'>
+                    <p class="productoPrecio">$${price}</p>
+                    <button class='btn btn-secondary' onclick='verProducto(${id})'>Ver</button>
+                </div>
+                <button class="carritoA btn btn-dark" id="${idBoton}">Agregrar al carrito</button">
+            </div>
         </div>`
         })
 }
@@ -149,17 +150,32 @@ function crearCard(e){
 function verProducto (id){
     const indice = productos.findIndex((producto)=> producto.id === id);
     localStorage.setItem('verProducto', JSON.stringify(productos[indice]))
-    location.href = '/pages/productos.html'
+    location.href = `./pages/productos.html?${id}`
 }
 
 crearCard(productos);
 
 for (let producto of productos){
-    let idBoton = `idBoton${producto.id}`;
+    idBoton = producto.id
     document.getElementById(idBoton).addEventListener('click',()=>{
+        const indice = productos.findIndex((ver)=> ver.id === producto.id);
+        localStorage.setItem('verProducto', JSON.stringify(productos[indice]))
         carrito.push(producto)
         const total = sumaCarrito(carrito);
-        console.log(total)
+        Toastify({
+            text: `Añadiste al Carrito: ${producto.categoria} ${producto.color}`,
+            avatar: producto.img,
+            duration: 3000,
+            destination: `./pages/productos.html?${producto.id}`,
+            newWindow: true,
+            close: true,
+            gravity: "top",
+            position: "right",
+            stopOnFocus: true, 
+            style: {
+                background: "linear-gradient(to right, #845EC2, #845Eff)",
+            },
+        }).showToast();
         localStorage.setItem('totalCarrito',JSON.stringify(total))
         document.querySelector('#productosCant').innerHTML= carrito.length;
         document.querySelector('#totalCarrito').innerHTML = `$${total}`
@@ -168,5 +184,5 @@ for (let producto of productos){
         `<p><span>Total de la compra:</span>$${total}</p>`
         resetCards('#cards')
         crearCardCarrito(carrito)
-        })
-};
+        });
+    }
