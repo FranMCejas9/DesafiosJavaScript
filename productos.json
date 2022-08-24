@@ -1,0 +1,131 @@
+[
+    { 
+        "id": "1",
+        "img": "../img/gorros/blanco.jpg",
+        "categoria": "Gorros",
+        "producto":"Gorro liso",
+        "color":  "Blanco",
+        "precio": "1000"
+    },
+    {
+        "id": "2",
+        "img": "../img/gorros/mostaza.jpg",
+        "categoria":"Gorros",
+        "producto":"Gorro liso",
+        "color": "Mostaza",
+        "precio": "1000"
+    },
+    {
+        "id": "3",
+        "img": "../img/gorros/rojo.jpg",
+        "categoria":"Gorros",
+        "producto":"Gorro liso",
+        "color": "Rojo",
+        "precio": "1000"
+    },
+    {
+        "id": "4",
+        "img": "../img/gorros/verdelimon.jpg",
+        "categoria": "Gorros",
+        "producto":"Gorro liso",
+        "color":  "Verde limón",
+        "precio": "1000"
+    },
+    {
+        "id": "5",
+        "img": "../img/carteras/azul.jpg",
+        "categoria":"Carteras",
+        "producto":"Cartera",
+        "color":  "Azul",
+        "precio": "1200"
+    },
+    {
+        "id": "6",
+        "img": "../img/carteras/lila.jpg",
+        "categoria":"Carteras",
+        "producto":"Cartera",
+        "color":  "Lila",
+        "precio": "1200"
+    },
+    {  
+        "id": "7",
+        "img": "../img/carteras/negra.jpg",
+        "categoria":"Carteras",
+        "producto":"Cartera",
+        "color":  "Negra",
+        "precio": "1200"
+    },
+    {
+        "id": "8",
+        "img": "../img/carteras/rosa.jpg",
+        "categoria":"Carteras",
+        "producto":"Cartera",
+        "color":  "Rosa",
+        "precio": "1200"
+    },
+    {
+        "id": "9",
+        "img": "../img/bandoleras/negra.jpg",
+        "categoria":"Bandoleras",
+        "producto":"Bandolera",
+        "color":  "Negra",
+        "precio": "1400"
+    },
+    {
+        "id": "10",
+        "img": "../img/bandoleras/blanca.jpg",
+        "categoria":"Bandoleras",
+        "producto":"Bandolera",
+        "color":  "Blanca",
+        "precio": "1400"
+    },
+    {
+        "id": "11",
+        "img": "../img/bandoleras/marron.jpg",
+        "categoria":"Bandoleras",
+        "producto":"Bandolera",
+        "color":  "Marrón",
+        "precio": "1400"
+    },
+    {
+        "id": "12",
+        "img": "../img/bandoleras/verde.jpg",
+        "categoria":"Bandoleras",
+        "producto":"Bandolera",
+        "color":  "Verde",
+        "precio": "1400"
+    },
+    {
+        "id": "13",
+        "img": "https://http2.mlstatic.com/D_NQ_NP_842761-MLA45601779395_042021-W.jpg",
+        "categoria":"Gorras",
+        "producto":"Gorra",
+        "color":  "Negra",
+        "precio": "1200"
+    },
+
+    {
+        "id": "14",
+        "img": "https://scene7.zumiez.com/is/image/zumiez/image/adidas-gorra-b%C3%A9isbol-en-rosa-_271215.jpg",
+        "categoria":"Gorras",
+        "producto":"Gorra",
+        "color":  "Rosa",
+        "precio": "1200"
+    },
+    {
+        "id": "15",
+        "img": "https://cdn.shopify.com/s/files/1/0043/0784/5249/products/11837279.jpg?v=1624033288",
+        "categoria":"Gorras",
+        "producto":"Gorra",
+        "color":  "Verde",
+        "precio": "1200"
+    },
+    {
+        "id": "16",
+        "img": "https://http2.mlstatic.com/D_NQ_NP_629436-MLA49552794203_042022-W.jpg",
+        "categoria":"Gorras",
+        "producto":"Gorra",
+        "color":  "Blanca,Azul y Roja",
+        "precio": "1200"
+    }
+]

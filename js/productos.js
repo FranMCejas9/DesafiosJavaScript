@@ -5,11 +5,28 @@ document.querySelector('#totalCarrito').innerHTML = `-$${total}`
 document.querySelector('#totalCarritoPop').innerHTML = `<p><span>Total de la compra:</span>$${total}</p>`
 crearCardCarrito(carrito)
 const mostrarProducto = JSON.parse(localStorage.getItem('verProducto'))
-console.log(mostrarProducto)
 
+function generadorDeSecciones(){
+    fetch('../productos.json')
+    .then((response)=>response.json())
+    .then((productos) => {
+        let secciones = new Set (productos.map(producto =>{
+            return producto.categoria
+        }))
+        let seccionesFiltrado = [...secciones];
+        seccionesFiltrado.forEach(seccion=>{
+            console.log(seccion)
+            document.querySelector('#navEnlaces').innerHTML += 
+            `<li class="nav-item">
+                <a class="nav-link" href="../index.html#${seccion}Container">${seccion}</a>
+            </li>`
+        })
+    })
+}
+generadorDeSecciones();
 
 function sumaCarrito(parametro){
-    return parametro.reduce((acc,producto)=> acc + producto.precio, 0);
+    return parametro.reduce((acc,producto)=> acc + JSON.parse(producto.precio), 0);
 }
 
 function resetCards (selector){
@@ -17,10 +34,10 @@ function resetCards (selector){
 }
 function crearCardCarrito(e){
     if (e.length > 0){
-    e.forEach(({id: id,img: img,categoria: cat,color : color,precio: price})=>{
+    e.forEach(({id: id,img: img,producto: prod,color : color,precio: price})=>{
         document.querySelector('#cards').innerHTML += 
         `<tr>
-            <td>${cat}</td>
+            <td>${prod}</td>
             <td>${color}</td>
             <td><img src= "${img}" style ='width: 100px'></td>
             <td>$${price}<div class='btn botonBorrar' onclick='deleteProduct(${id})'><p>X</p></div></td>
@@ -34,7 +51,7 @@ document.querySelector('#productosVer').innerHTML = `
             <img id='productoImg'src="${mostrarProducto.img}" alt=""></div>
         <div class='col-12 col-lg-5'>
             <div class='cardTextos'>
-                <h3>${mostrarProducto.categoria}</h3>
+                <h3>${mostrarProducto.producto}</h3>
                 <p>$${mostrarProducto.precio}</p>
                 <p class="color">Color: ${mostrarProducto.color}</p>
             </div>
@@ -68,7 +85,7 @@ function añadirAlCarrito(){
     carrito.push(mostrarProducto)
     const total = sumaCarrito(carrito);
     Toastify({
-        text: `Añadiste al Carrito: ${mostrarProducto.categoria} ${mostrarProducto.color}`,
+        text: `Añadiste al Carrito: ${mostrarProducto.producto} ${mostrarProducto.color}`,
         avatar: mostrarProducto.img,
         duration: 3000,
         newWindow: true,
