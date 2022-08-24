@@ -94,38 +94,5 @@
         "producto":"Bandolera",
         "color":  "Verde",
         "precio": "1400"
-    },
-    {
-        "id": "13",
-        "img": "https://http2.mlstatic.com/D_NQ_NP_842761-MLA45601779395_042021-W.jpg",
-        "categoria":"Gorras",
-        "producto":"Gorra",
-        "color":  "Negra",
-        "precio": "1200"
-    },
-
-    {
-        "id": "14",
-        "img": "https://scene7.zumiez.com/is/image/zumiez/image/adidas-gorra-b%C3%A9isbol-en-rosa-_271215.jpg",
-        "categoria":"Gorras",
-        "producto":"Gorra",
-        "color":  "Rosa",
-        "precio": "1200"
-    },
-    {
-        "id": "15",
-        "img": "https://cdn.shopify.com/s/files/1/0043/0784/5249/products/11837279.jpg?v=1624033288",
-        "categoria":"Gorras",
-        "producto":"Gorra",
-        "color":  "Verde",
-        "precio": "1200"
-    },
-    {
-        "id": "16",
-        "img": "https://http2.mlstatic.com/D_NQ_NP_629436-MLA49552794203_042022-W.jpg",
-        "categoria":"Gorras",
-        "producto":"Gorra",
-        "color":  "Blanca,Azul y Roja",
-        "precio": "1200"
     }
 ]

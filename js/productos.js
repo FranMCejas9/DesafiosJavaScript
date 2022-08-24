@@ -15,7 +15,6 @@ function generadorDeSecciones(){
         }))
         let seccionesFiltrado = [...secciones];
         seccionesFiltrado.forEach(seccion=>{
-            console.log(seccion)
             document.querySelector('#navEnlaces').innerHTML += 
             `<li class="nav-item">
                 <a class="nav-link" href="../index.html#${seccion}Container">${seccion}</a>
@@ -48,7 +47,7 @@ function crearCardCarrito(e){
 document.querySelector('#productosVer').innerHTML = `
     <div class="cardProducto row">
         <div id='productoImgContainer' col-12 col-lg-7'>
-            <img id='productoImg'src="${mostrarProducto.img}" alt=""></div>
+            <img id='productoImg'src="${mostrarProducto.img}" alt="${mostrarProducto.producto}${mostrarProducto.color}"></div>
         <div class='col-12 col-lg-5'>
             <div class='cardTextos'>
                 <h3>${mostrarProducto.producto}</h3>

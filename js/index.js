@@ -84,15 +84,17 @@ function crearCard(e){
         })
 }
 
-function verProducto (e){
+function verProducto(e){
     fetch('productos.json')
     .then((response)=>response.json())
     .then((productos)=> {
-    const indice = productos.findIndex((producto)=> producto.id == e)
-    localStorage.setItem('verProducto', JSON.stringify(productos[indice]))
+        const indice = productos.findIndex((producto)=> producto.id == e)
+        console.log(indice)
+        localStorage.setItem('verProducto', JSON.stringify(productos[indice]))
     })
     location.href = `./pages/productos.html?${e}`
 }
+
 
 fetch('productos.json')
 .then((response)=>response.json())
