@@ -17,7 +17,7 @@ function generadorDeSecciones(){
         let seccionesFiltrado = [...secciones];
         seccionesFiltrado.forEach(seccion=>{
             document.querySelector('.productos').innerHTML +=
-            `div class="col-12 p-0">
+            `<div class="col-12 p-0">
                 <h2 class="text-center articuloTitulo  p-3 " id="${seccion}Container">${seccion}</h2>
             </div>
             <div id="${seccion}" class="row p-0 m-0"></div>`
@@ -94,6 +94,7 @@ function verProducto(e){
     })
     location.href = `./pages/productos.html?${e}`
 }
+
 
 
 fetch('productos.json')
