@@ -6,24 +6,25 @@ document.querySelector('#totalCarritoPop').innerHTML = `<p><span>Total de la com
 crearCardCarrito(carrito)
 const mostrarProducto = JSON.parse(localStorage.getItem('verProducto'))
 
-function generadorDeSecciones(){
-    fetch('../productos.json')
-    .then((response)=>response.json())
-    .then((productos) => {
-        let secciones = new Set (productos.map(producto =>{
-            return producto.categoria
-        }))
-        let seccionesFiltrado = [...secciones];
-        seccionesFiltrado.forEach(seccion=>{
-            document.querySelector('#navEnlaces').innerHTML += 
-            `<li class="nav-item">
-                <a class="nav-link" href="../index.html#${seccion}Container">${seccion}</a>
-            </li>`
-        })
+function generadorDeSecciones(el){
+    let secciones = new Set (el.map(producto =>{
+        return producto.categoria
+    }))
+    let seccionesFiltrado = [...secciones];
+    seccionesFiltrado.forEach(seccion=>{
+        document.querySelector('#navEnlaces').innerHTML += 
+        `<li class="nav-item">
+            <a class="nav-link" href="../index.html#${seccion}Container">${seccion}</a>
+        </li>`
     })
 }
-generadorDeSecciones();
 
+
+fetch('../productos.json')
+.then((response)=>response.json())
+.then((productos) => {
+    generadorDeSecciones(productos);
+})
 function sumaCarrito(parametro){
     return parametro.reduce((acc,producto)=> acc + JSON.parse(producto.precio), 0);
 }
