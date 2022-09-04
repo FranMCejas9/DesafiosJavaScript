@@ -1,17 +1,22 @@
 const carrito = JSON.parse(localStorage.getItem('carrito')) ?? [];
 const total = localStorage.getItem('totalCarrito') ?? 0;
-document.querySelector('#productosCant').innerHTML= carrito.length;
+document.querySelector('#productosCant').innerHTML= sumaProductos(carrito);
 document.querySelector('#totalCarrito').innerHTML = `-$${total}`
 document.querySelector('#totalCarritoPop').innerHTML = `<p><span>Total de la compra:</span>$${total}</p>`
 crearCardCarrito(carrito)
 const mostrarProducto = JSON.parse(localStorage.getItem('verProducto'))
 
+
+
+
+/* Generador de secciones*/
 function generadorDeSecciones(el){
     let secciones = new Set (el.map(producto =>{
         return producto.categoria
     }))
     let seccionesFiltrado = [...secciones];
     seccionesFiltrado.forEach(seccion=>{
+        /* Crear secciones en el navBar*/
         document.querySelector('#navEnlaces').innerHTML += 
         `<li class="nav-item">
             <a class="nav-link" href="../index.html#${seccion}Container">${seccion}</a>
@@ -20,31 +25,9 @@ function generadorDeSecciones(el){
 }
 
 
-fetch('../productos.json')
-.then((response)=>response.json())
-.then((productos) => {
-    generadorDeSecciones(productos);
-})
-function sumaCarrito(parametro){
-    return parametro.reduce((acc,producto)=> acc + JSON.parse(producto.precio), 0);
-}
 
-function resetCards (selector){
-    document.querySelector(selector).innerHTML = ''
-}
-function crearCardCarrito(e){
-    if (e.length > 0){
-    e.forEach(({id: id,img: img,producto: prod,color : color,precio: price})=>{
-        document.querySelector('#cards').innerHTML += 
-        `<tr>
-            <td>${prod}</td>
-            <td>${color}</td>
-            <td><img src= "${img}" style ='width: 100px'></td>
-            <td>$${price}<div class='btn botonBorrar' onclick='deleteProduct(${id})'><p>X</p></div></td>
-        </tr>`
-    })
-}}
 
+/* Generar cards en el body */
 document.querySelector('#productosVer').innerHTML = `
     <div class="cardProducto row">
         <div id='productoImgContainer' col-12 col-lg-7'>
@@ -61,6 +44,11 @@ document.querySelector('#productosVer').innerHTML = `
         </div>
     </div>`
 
+
+
+    
+
+/*Zoom en imagen del producto*/
 let productoImgContainer = document.getElementById('productoImgContainer')
 let productoImg = document.getElementById('productoImg')
 
@@ -81,43 +69,10 @@ productoImgContainer.addEventListener('mouseleave', function(){
     productoImg.style.transform = 'translate(-50%,-50%) scale(1)'
 })
 
-function añadirAlCarrito(){
-    carrito.push(mostrarProducto)
-    const total = sumaCarrito(carrito);
-    Toastify({
-        text: `Añadiste al Carrito: ${mostrarProducto.producto} ${mostrarProducto.color}`,
-        avatar: mostrarProducto.img,
-        duration: 3000,
-        newWindow: true,
-        close: true,
-        gravity: "top",
-        position: "right",
-        stopOnFocus: true, 
-        style: {
-            background: "linear-gradient(to right, #845EC2, #845Eff)",
-        },
-    }).showToast();
-    localStorage.setItem('totalCarrito',JSON.stringify(total))
-    document.querySelector('#productosCant').innerHTML= carrito.length;
-    document.querySelector('#totalCarrito').innerHTML = `$${total}`
-    localStorage.setItem('carrito',JSON.stringify(carrito))
-        document.querySelector('#totalCarritoPop').innerHTML = 
-    `<p><span>Total de la compra:</span>$${total}</p>`
-    resetCards('#cards')
-    crearCardCarrito(carrito)
-}
 
-
-const deleteProduct = (el) => {
-    let indice = carrito.findIndex(indice => indice.id === el)
-    carrito.splice(indice,1);
-    const total = sumaCarrito(carrito);
-    localStorage.setItem('carrito',JSON.stringify(carrito));
-    localStorage.setItem('totalCarrito',JSON.stringify(total))
-    document.querySelector('#productosCant').innerHTML= carrito.length;
-    document.querySelector('#totalCarrito').innerHTML = `$${total}`
-    resetCards('#cards')
-    crearCardCarrito(carrito)
-    document.querySelector('#totalCarritoPop').innerHTML = 
-    `<p><span>Total de la compra:</span>$${total}</p>`
-}
+fetch('../productos.json')
+.then((response)=>response.json())
+.then((productos) => {
+    generadorDeSecciones(productos);
+    añadirAlCarrito(productos)
+})
