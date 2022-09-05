@@ -3,7 +3,10 @@ const carrito = JSON.parse(localStorage.getItem('carrito')) ?? [];
 const total = localStorage.getItem('totalCarrito') ?? 0;
 document.querySelector('#productosCant').innerHTML= sumaProductos(carrito);
 document.querySelector('#totalCarrito').innerHTML = `-$${total}`
-document.querySelector('#totalCarritoPop').innerHTML = `<p><span>Total de la compra:</span>$${total}</p>`
+if(carrito > 0){
+    document.querySelector('#totalCarritoPop').innerHTML = 
+    `<p><span>Total de la compra:</span>$${total}</p>`
+}
 crearCardCarrito(carrito)
 
 

@@ -2,12 +2,12 @@ const carrito = JSON.parse(localStorage.getItem('carrito')) ?? [];
 const total = localStorage.getItem('totalCarrito') ?? 0;
 document.querySelector('#productosCant').innerHTML= sumaProductos(carrito);
 document.querySelector('#totalCarrito').innerHTML = `-$${total}`
-document.querySelector('#totalCarritoPop').innerHTML = `<p><span>Total de la compra:</span>$${total}</p>`
+if(carrito > 0){
+    document.querySelector('#totalCarritoPop').innerHTML = 
+    `<p><span>Total de la compra:</span>$${total}</p>`
+}
 crearCardCarrito(carrito)
-const mostrarProducto = JSON.parse(localStorage.getItem('verProducto'))
-
-
-
+const mostrarProducto = [JSON.parse(localStorage.getItem('verProducto'))]
 
 /* Generador de secciones*/
 function generadorDeSecciones(el){
@@ -26,25 +26,34 @@ function generadorDeSecciones(el){
 
 
 /* Generar cards en el body */
-function crearCard(){
-    document.querySelector('#productosVer').innerHTML = `
-    <div class="cardProducto row">
-        <div id='productoImgContainer' col-12 col-lg-7'>
-            <img id='productoImg'src="${mostrarProducto.img}" alt="${mostrarProducto.producto}${mostrarProducto.color}"></div>
-        <div class='col-12 col-lg-5'>
-            <div class='cardTextos'>
-                <h3>${mostrarProducto.producto}</h3>
-                <p>$${mostrarProducto.precio}</p>
-                <p class="color">Color: ${mostrarProducto.color}</p>
+function crearCard(el){
+    el.forEach((producto)=>{
+        let idBoton = `boton${producto.id}`
+        document.querySelector('#productosVer').innerHTML = `
+        <div class="cardProducto row">
+            <div id='productoImgContainer' col-12 col-lg-7'>
+                <img id='productoImg'src="${producto.img}" alt="${producto.producto}${producto.color}"></div>
+            <div class='col-12 col-lg-5'>
+                <div class='cardTextos'>
+                    <h3>${producto.producto}</h3>
+                    <p>$${producto.precio}</p>
+                    <p class="color">Color: ${producto.color}</p>
+                </div>
+                <div>
+                    <button class="btn btn-dark" id= '${idBoton}'>Añadir al carrito</button>
+                </div>
             </div>
-            <div>
-                <button class="btn btn-dark" id= 'idBoton${mostrarProducto.id}' onclick='añadirAlCarrito()'>Añadir al carrito</button>
-            </div>
-        </div>
-    </div>`
+        </div>`
+    })
 }
 
+fetch('../productos.json')
+.then((response)=>response.json())
+.then((productos) => {
+    generadorDeSecciones(productos);
+})
 
+añadirAlCarrito(mostrarProducto);
 
 /*Zoom en imagen del producto*/
 let productoImgContainer = document.getElementById('productoImgContainer')
@@ -65,12 +74,4 @@ productoImgContainer.addEventListener('mousemove', function (event){
 
 productoImgContainer.addEventListener('mouseleave', function(){
     productoImg.style.transform = 'translate(-50%,-50%) scale(1)'
-})
-
-
-fetch('../productos.json')
-.then((response)=>response.json())
-.then((productos) => {
-    generadorDeSecciones(productos);
-    añadirAlCarrito(productos)
 })

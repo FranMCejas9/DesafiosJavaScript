@@ -294,6 +294,47 @@
   text-transform: capitalize;
 }
 
+.carritoVacioContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.carritoVacioContainer h1 {
+  text-align: center;
+  color: #845EC2;
+  -webkit-animation-name: vacio;
+          animation-name: vacio;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-iteration-count: initial;
+          animation-iteration-count: initial;
+}
+
+@-webkit-keyframes vacio {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes vacio {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 #productosVer {
   font-family: "Times New Roman", Times, serif;
   padding: 5rem;

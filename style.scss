@@ -281,6 +281,35 @@
         }
     }
 }
+.carritoVacioContainer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h1{
+        text-align: center;
+        color: #845EC2;
+        animation-name: vacio;
+        animation-duration: 0.5s;
+        animation-iteration-count: initial;
+    }
+}
+
+@keyframes vacio {
+    0%{
+        opacity: 0;
+    }
+
+    50%{
+        opacity: 0.5;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
 
 #productosVer{
     font-family: 'Times New Roman', Times, serif;

@@ -15,6 +15,9 @@ function crearCardCarrito(e){
             </tr>
             <div class='btn botonBorrar' onclick='deleteProduct(${id})'><p>Eliminar</p></div>`
         })
+    } else if(e.length === 0){
+        resetCards('#cards')
+        document.querySelector('#cards').innerHTML = `<div class='carritoVacioContainer'><h1>Carrito Vacío</h1></div>`
     }
 }
 
@@ -26,12 +29,14 @@ const deleteProduct = (el) => {
     const total = sumaCarrito(carrito);
     localStorage.setItem('carrito',JSON.stringify(carrito));
     localStorage.setItem('totalCarrito',JSON.stringify(total))
-    document.querySelector('#productosCant').innerHTML= carrito.length;
+    document.querySelector('#productosCant').innerHTML= sumaProductos(carrito);
     document.querySelector('#totalCarrito').innerHTML = `$${total}`
     resetCards('#cards')
     crearCardCarrito(carrito)
-    document.querySelector('#totalCarritoPop').innerHTML = 
-    `<p><span>Total de la compra:</span>$${total}</p>`
+    if(carrito > 0){
+        document.querySelector('#totalCarritoPop').innerHTML = 
+        `<p><span>Total de la compra:</span>$${total}</p>`
+    }
 }
 
 
@@ -63,8 +68,10 @@ function actualizarDOM(){
     document.querySelector('#totalCarrito').innerHTML = `$${total}`
     resetCards('#cards')
     crearCardCarrito(carrito)
-    document.querySelector('#totalCarritoPop').innerHTML = 
-    `<p><span>Total de la compra:</span>$${total}</p>`
+    if(carrito > 0){
+        document.querySelector('#totalCarritoPop').innerHTML = 
+        `<p><span>Total de la compra:</span>$${total}</p>`
+    }
 }
 
 
@@ -92,17 +99,16 @@ function añadirAlCarrito(el){
     el.forEach((producto)=>{
     let idBoton = `boton${producto.id}`
     document.getElementById(idBoton).addEventListener('click',()=>{
-        const indice = el.findIndex((ver)=> ver.id === producto.id);
-        localStorage.setItem('verProducto', JSON.stringify(el[indice]))
-        if(producto.cantidad === undefined ){
-            producto.cantidad = 1;
+        if(producto.cantidad === undefined){
+            producto.cantidad = 1
             carrito.push(producto)
-        } else producto.cantidad += 1;
+        } else if(producto.cantidad >= 1){
+            producto.cantidad += 1
+        }
         Toastify({
             text: `Añadiste al Carrito: ${producto.producto} ${producto.color}`,
             avatar: producto.img,
             duration: 3000,
-            destination: `./pages/productos.html?${producto.id}`,
             newWindow: true,
             close: true,
             gravity: "top",
