@@ -25,10 +25,9 @@ function generadorDeSecciones(el){
 }
 
 
-
-
 /* Generar cards en el body */
-document.querySelector('#productosVer').innerHTML = `
+function crearCard(){
+    document.querySelector('#productosVer').innerHTML = `
     <div class="cardProducto row">
         <div id='productoImgContainer' col-12 col-lg-7'>
             <img id='productoImg'src="${mostrarProducto.img}" alt="${mostrarProducto.producto}${mostrarProducto.color}"></div>
@@ -43,10 +42,9 @@ document.querySelector('#productosVer').innerHTML = `
             </div>
         </div>
     </div>`
+}
 
 
-
-    
 
 /*Zoom en imagen del producto*/
 let productoImgContainer = document.getElementById('productoImgContainer')
