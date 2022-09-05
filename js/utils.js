@@ -16,6 +16,7 @@ function crearCardCarrito(e){
             <div class='btn botonBorrar' onclick='deleteProduct(${id})'><p>Eliminar</p></div>`
         })
     } else if(e.length === 0){
+        document.querySelector('#totalCarritoPop').innerHTML = ``
         resetCards('#cards')
         document.querySelector('#cards').innerHTML = `<div class='carritoVacioContainer'><h1>Carrito Vacío</h1></div>`
     }
@@ -26,17 +27,7 @@ function crearCardCarrito(e){
 const deleteProduct = (el) => {
     let indice = carrito.findIndex(indice => indice.id == el)
     carrito.splice(indice,1);
-    const total = sumaCarrito(carrito);
-    localStorage.setItem('carrito',JSON.stringify(carrito));
-    localStorage.setItem('totalCarrito',JSON.stringify(total))
-    document.querySelector('#productosCant').innerHTML= sumaProductos(carrito);
-    document.querySelector('#totalCarrito').innerHTML = `$${total}`
-    resetCards('#cards')
-    crearCardCarrito(carrito)
-    if(carrito > 0){
-        document.querySelector('#totalCarritoPop').innerHTML = 
-        `<p><span>Total de la compra:</span>$${total}</p>`
-    }
+    actualizarDOM()
 }
 
 
@@ -99,11 +90,12 @@ function añadirAlCarrito(el){
     el.forEach((producto)=>{
     let idBoton = `boton${producto.id}`
     document.getElementById(idBoton).addEventListener('click',()=>{
-        if(producto.cantidad === undefined){
+        console.log(carrito.includes(producto))
+        if(carrito.includes(producto) === true){
+            producto.cantidad += 1
+        } else if(carrito.includes(producto) === false){
             producto.cantidad = 1
             carrito.push(producto)
-        } else if(producto.cantidad >= 1){
-            producto.cantidad += 1
         }
         Toastify({
             text: `Añadiste al Carrito: ${producto.producto} ${producto.color}`,
