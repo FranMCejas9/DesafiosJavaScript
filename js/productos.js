@@ -76,11 +76,15 @@ productoImgContainer.addEventListener('mouseleave', function(){
 
 
     
+
 function finalizarCompra(){
     document.querySelector('.buttonFinal').addEventListener('click',()=>{
-        location.href = `compraFinal.html`
-        limpiarCarrito();
+        if(carrito.length > 0){
+            location.href = `compraFinal.html`
+            limpiarCarrito();
+        } else {
+            resetCards('#cards')
+            document.querySelector('#cards').innerHTML = `<div class = 'agregueProductos'><p>Agregue productos al carrito</p></div>`
+        }
     })
 }
-
-finalizarCompra()

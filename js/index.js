@@ -82,11 +82,17 @@ fetch('productos.json')
 
 
 
-    
+
 function finalizarCompra(){
     document.querySelector('.buttonFinal').addEventListener('click',()=>{
-        location.href = `./pages/compraFinal.html`
-        limpiarCarrito();
+        if(carrito.length > 0){
+            location.href = `./pages/compraFinal.html`
+            limpiarCarrito();
+        } else {
+            resetCards('#cards')
+            document.querySelector('#cards').innerHTML = `<div class = 'agregueProductos'><p>Agregue productos al carrito</p></div>`
+        }
     })
 }
+
 finalizarCompra();

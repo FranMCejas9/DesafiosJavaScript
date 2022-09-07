@@ -16,12 +16,17 @@ function crearFactura(){
 function sumaTotal(){
     return compraFinal.reduce((acc,producto)=> acc + (JSON.parse(producto.precio)* producto.cantidad), 0)
 }
-
+function numeroRandom(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
 function detalleDePedido(){
     document.querySelector('.detalleDePedido').innerHTML = `
     <div class = 'detalleDePedidoContenido'>
         <h3>Detalle del pedido</h3>
         <div>
+            <p>Numero del pedido: #${numeroRandom(0,100)}</p>
             <p>Metodo de pago: tranferencia bancaria</p>
             <p>CBU: 01702046600000087865</p>
             <p>ALIAS: COMPRA.CODER.PROYECTO</p> 

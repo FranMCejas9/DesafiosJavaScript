@@ -371,6 +371,21 @@
     opacity: 0;
   }
 }
+.agregueProductos {
+  width: 100%;
+  text-align: center;
+}
+.agregueProductos p {
+  opacity: 0;
+  font-size: clamp(2rem, 2vw, 3vw);
+  -webkit-animation-name: vacio;
+          animation-name: vacio;
+  -webkit-animation-duration: 1.4s;
+          animation-duration: 1.4s;
+  -webkit-animation-iteration-count: initial;
+          animation-iteration-count: initial;
+}
+
 #productosVer {
   font-family: "Times New Roman", Times, serif;
   padding: 5rem;

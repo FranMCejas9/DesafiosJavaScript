@@ -293,7 +293,6 @@
     }
 }
 
-
 .carritoVacioContainer{
     width: 100%;
     height: 100%;
@@ -335,7 +334,17 @@
     }
 }
 
-
+.agregueProductos{
+    width: 100%;
+    text-align: center;
+    p{
+        opacity: 0;
+        font-size: clamp(2rem,2vw,3vw);
+        animation-name: vacio;
+        animation-duration: 1.4s;
+        animation-iteration-count: initial;
+    }
+}
 #productosVer{
     font-family: 'Times New Roman', Times, serif;
     padding: 5rem;
