@@ -241,7 +241,8 @@
 
 
 .imgCarrito{
-    width: 100px;
+    width: 55%;
+    min-width: 35px;
 }
 .carrito:hover{
     #totalCarrito{
@@ -411,11 +412,5 @@
     .logo{
         text-align: center;
         margin: 0px;
-    }
-}
-
-@media screen and (max-width:400px) {
-    .imgCarrito{
-        width: 35px;
     }
 }
