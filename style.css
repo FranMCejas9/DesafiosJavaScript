@@ -418,7 +418,7 @@
 }
 #productosVer .cardProducto #productoImgContainer #productoImg {
   max-width: 100%;
-  min-height: 100%;
+  min-width: 260px;
   position: absolute;
   -o-object-fit: cover;
      object-fit: cover;
@@ -509,5 +509,16 @@
   .detalleDePedido .detalleDePedidoContenido {
     width: 100%;
     padding: 0%;
+  }
+  #productosVer {
+    padding: 0px;
+  }
+  #productosVer .cardProducto {
+    padding: 0px;
+    margin-top: 150px;
+    width: 100%;
+  }
+  #productosVer .cardProducto div div {
+    padding-bottom: 4%;
   }
 }/*# sourceMappingURL=style.css.map */

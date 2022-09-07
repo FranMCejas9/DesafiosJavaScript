@@ -88,3 +88,4 @@ function finalizarCompra(){
         }
     })
 }
+finalizarCompra();
