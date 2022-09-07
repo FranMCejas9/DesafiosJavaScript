@@ -202,17 +202,11 @@
 
 .botonBorrar {
   padding: 0px;
-  margin: 1rem;
   transition: all 0.3s;
 }
 .botonBorrar:hover {
-  background-color: #eee;
-  color: #333;
+  color: #f00;
   transition: all 0.3s;
-}
-.botonBorrar p {
-  text-align: center;
-  margin: 0px;
 }
 
 .productosCantidad {
@@ -241,6 +235,10 @@
   width: 30px;
   margin: 0px;
   display: inline-block;
+}
+
+.imgCarrito {
+  width: 100px;
 }
 
 .carrito:hover #totalCarrito {
@@ -302,12 +300,13 @@
   justify-content: center;
 }
 .carritoVacioContainer h1 {
+  opacity: 0;
   text-align: center;
   color: #845EC2;
   -webkit-animation-name: vacio;
           animation-name: vacio;
-  -webkit-animation-duration: 0.5s;
-          animation-duration: 0.5s;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
   -webkit-animation-iteration-count: initial;
           animation-iteration-count: initial;
 }
@@ -316,11 +315,24 @@
   0% {
     opacity: 0;
   }
+  20% {
+    opacity: 0.3;
+  }
   50% {
+    transform: scale(1.1);
     opacity: 0.5;
   }
-  100% {
+  70% {
     opacity: 1;
+  }
+  80% {
+    opacity: 0.5;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
   }
 }
 
@@ -328,11 +340,24 @@
   0% {
     opacity: 0;
   }
+  20% {
+    opacity: 0.3;
+  }
   50% {
+    transform: scale(1.1);
     opacity: 0.5;
   }
-  100% {
+  70% {
     opacity: 1;
+  }
+  80% {
+    opacity: 0.5;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
   }
 }
 #productosVer {
@@ -423,5 +448,10 @@
   .logo {
     text-align: center;
     margin: 0px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .imgCarrito {
+    width: 35px;
   }
 }/*# sourceMappingURL=style.css.map */

@@ -204,16 +204,10 @@
 
 .botonBorrar{
     padding: 0px;
-    margin: 1rem;
     transition: all 0.3s;
     &:hover{
-        background-color: #eee;
-        color: #333;
+        color: #f00;
         transition: all 0.3s;
-    }
-    p{
-        text-align: center;
-        margin: 0px;
     }
 }
 
@@ -245,6 +239,10 @@
     }
 }
 
+
+.imgCarrito{
+    width: 100px;
+}
 .carrito:hover{
     #totalCarrito{
         display: block;
@@ -288,10 +286,11 @@
     align-items: center;
     justify-content: center;
     h1{
+        opacity: 0;
         text-align: center;
         color: #845EC2;
         animation-name: vacio;
-        animation-duration: 0.5s;
+        animation-duration: 2s;
         animation-iteration-count: initial;
     }
 }
@@ -300,13 +299,25 @@
     0%{
         opacity: 0;
     }
-
-    50%{
-        opacity: 0.5;
+    20%{
+        opacity: 0.3;
     }
 
-    100%{
+    50%{
+        transform: scale(1.1);
+        opacity: 0.5;
+    }
+    70%{
         opacity: 1;
+    }
+    80%{
+        opacity: 0.5;
+    }
+    90%{
+        opacity: 0.3;
+    }
+    100%{
+        opacity: 0;
     }
 }
 
@@ -404,5 +415,7 @@
 }
 
 @media screen and (max-width:400px) {
-
+    .imgCarrito{
+        width: 35px;
+    }
 }

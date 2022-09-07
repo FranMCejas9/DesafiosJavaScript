@@ -7,13 +7,14 @@ function crearCardCarrito(e){
             let botonMas = `botonMas${id}`
             document.querySelector('#cards').innerHTML += 
             `<tr>
-                <td><img src= "${img}" style ='width: 100px'></td>
+                <td><img src= "${img}" class='imgCarrito'></td>
                 <td>${prod}</td>
                 <td>${color}</td>
                 <td class="productosCantidad"><div><button class="${botonMenos}" data-id="${id}" onclick="quitarEl(event)">-</button><p>${cant}</p><button class="${botonMas}" data-id="${id}" onclick="agregarEl(event)">+</button></div></td>
                 <td>$${price}</td>
-            </tr>
-            <div class='btn botonBorrar' onclick='deleteProduct(${id})'><p>Eliminar</p></div>`
+                <td>
+                <div class='btn botonBorrar' onclick='deleteProduct(${id})'><i class="fa-solid fa-trash"></i></div></td>
+            </tr>`
         })
     } else if(e.length === 0){
         document.querySelector('#totalCarritoPop').innerHTML = ``
@@ -59,7 +60,7 @@ function actualizarDOM(){
     document.querySelector('#totalCarrito').innerHTML = `$${total}`
     resetCards('#cards')
     crearCardCarrito(carrito)
-    if(carrito > 0){
+    if(carrito.length > 0){
         document.querySelector('#totalCarritoPop').innerHTML = 
         `<p><span>Total de la compra:</span>$${total}</p>`
     }
