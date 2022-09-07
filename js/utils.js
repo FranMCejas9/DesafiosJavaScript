@@ -115,3 +115,12 @@ function añadirAlCarrito(el){
         });
     })
 }
+
+/* limpiar carrito y storage */
+
+function limpiarCarrito(){
+    localStorage.setItem('compraFinal',JSON.stringify(carrito))
+    localStorage.removeItem('carrito')
+    localStorage.removeItem('verProducto')
+    localStorage.removeItem('totalCarrito')
+}

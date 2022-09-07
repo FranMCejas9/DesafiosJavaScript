@@ -280,6 +280,20 @@
         }
     }
 }
+
+.buttonFinal{
+    height: auto;
+    background-color: #845EC2;
+    color: #fff;
+    transition: all ease 0.4s;
+    &:hover{
+        background-color: #111;
+        color: #fff;
+        transition: all ease 0.4s;
+    }
+}
+
+
 .carritoVacioContainer{
     width: 100%;
     height: 100%;
@@ -291,7 +305,7 @@
         text-align: center;
         color: #845EC2;
         animation-name: vacio;
-        animation-duration: 2s;
+        animation-duration: 1.4s;
         animation-iteration-count: initial;
     }
 }
@@ -305,7 +319,6 @@
     }
 
     50%{
-        transform: scale(1.1);
         opacity: 0.5;
     }
     70%{
@@ -407,10 +420,46 @@
     }
 }
 
-
+.containerCompra{
+    width: 100vw;
+    height: auto;
+    padding-top: 10%;
+    display: flex;
+    justify-content: center;
+    #compraFinal{
+        width: 60%;
+    }
+}
+.detalleDePedido{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10%;
+    .detalleDePedidoContenido{
+        width: 60%;
+        border: 1.3px #555 solid;
+        border-radius: 0.3rem;
+        text-align: center;
+    }
+}
 @media screen and (max-width:992px) {
     .logo{
         text-align: center;
         margin: 0px;
+    }
+}
+
+@media screen and (max-width:400px){
+    .containerCompra{
+        padding-top: 40%;
+        #compraFinal{
+            width: 100%;
+        }
+    }
+    .detalleDePedido{
+        .detalleDePedidoContenido{
+            width: 100%;
+            padding: 0%;
+        }
     }
 }

@@ -79,3 +79,14 @@ fetch('productos.json')
         añadirAlCarrito(productos)
         verProducto(productos)
     })
+
+
+
+    
+function finalizarCompra(){
+    document.querySelector('.buttonFinal').addEventListener('click',()=>{
+        location.href = `./pages/compraFinal.html`
+        limpiarCarrito();
+    })
+}
+finalizarCompra();

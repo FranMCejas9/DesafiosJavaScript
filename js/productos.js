@@ -73,3 +73,14 @@ productoImgContainer.addEventListener('mousemove', function (event){
 productoImgContainer.addEventListener('mouseleave', function(){
     productoImg.style.transform = 'translate(-50%,-50%) scale(1)'
 })
+
+
+    
+function finalizarCompra(){
+    document.querySelector('.buttonFinal').addEventListener('click',()=>{
+        location.href = `compraFinal.html`
+        limpiarCarrito();
+    })
+}
+
+finalizarCompra()

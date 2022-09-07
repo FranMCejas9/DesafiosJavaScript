@@ -293,6 +293,18 @@
   text-transform: capitalize;
 }
 
+.buttonFinal {
+  height: auto;
+  background-color: #845EC2;
+  color: #fff;
+  transition: all ease 0.4s;
+}
+.buttonFinal:hover {
+  background-color: #111;
+  color: #fff;
+  transition: all ease 0.4s;
+}
+
 .carritoVacioContainer {
   width: 100%;
   height: 100%;
@@ -306,8 +318,8 @@
   color: #845EC2;
   -webkit-animation-name: vacio;
           animation-name: vacio;
-  -webkit-animation-duration: 2s;
-          animation-duration: 2s;
+  -webkit-animation-duration: 1.4s;
+          animation-duration: 1.4s;
   -webkit-animation-iteration-count: initial;
           animation-iteration-count: initial;
 }
@@ -320,7 +332,6 @@
     opacity: 0.3;
   }
   50% {
-    transform: scale(1.1);
     opacity: 0.5;
   }
   70% {
@@ -345,7 +356,6 @@
     opacity: 0.3;
   }
   50% {
-    transform: scale(1.1);
     opacity: 0.5;
   }
   70% {
@@ -445,9 +455,45 @@
   color: #222;
 }
 
+.containerCompra {
+  width: 100vw;
+  height: auto;
+  padding-top: 10%;
+  display: flex;
+  justify-content: center;
+}
+.containerCompra #compraFinal {
+  width: 60%;
+}
+
+.detalleDePedido {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10%;
+}
+.detalleDePedido .detalleDePedidoContenido {
+  width: 60%;
+  border: 1.3px #555 solid;
+  border-radius: 0.3rem;
+  text-align: center;
+}
+
 @media screen and (max-width: 992px) {
   .logo {
     text-align: center;
     margin: 0px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .containerCompra {
+    padding-top: 40%;
+  }
+  .containerCompra #compraFinal {
+    width: 100%;
+  }
+  .detalleDePedido .detalleDePedidoContenido {
+    width: 100%;
+    padding: 0%;
   }
 }/*# sourceMappingURL=style.css.map */
