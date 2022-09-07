@@ -432,10 +432,11 @@
 .containerCompra{
     width: 100vw;
     height: auto;
-    padding-top: 10%;
     display: flex;
     justify-content: center;
+    padding: 0px;
     #compraFinal{
+        margin-top: 150px;
         width: 60%;
     }
 }
@@ -444,6 +445,7 @@
     display: flex;
     justify-content: center;
     margin-bottom: 10%;
+    padding: 0px;
     .detalleDePedidoContenido{
         width: 60%;
         border: 1.3px #555 solid;
@@ -460,7 +462,6 @@
 
 @media screen and (max-width:400px){
     .containerCompra{
-        padding-top: 40%;
         #compraFinal{
             width: 100%;
         }
